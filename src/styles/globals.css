@@ -1,0 +1,3656 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  color: #1f2937;
+  background: #ffffff;
+  font-family:
+    "Be Vietnam Pro", Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+  font-synthesis: none;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+html {
+  scroll-behavior: smooth;
+  scroll-padding-top: 68px;
+}
+
+body {
+  min-width: 320px;
+  margin: 0;
+  overflow-x: hidden;
+  background: #ffffff;
+}
+
+button,
+a {
+  -webkit-tap-highlight-color: transparent;
+}
+
+button {
+  font: inherit;
+}
+
+::selection {
+  background: rgba(249, 115, 22, 0.28);
+}
+
+@layer components {
+  .container-x {
+    width: min(calc(100% - clamp(2rem, 5vw, 5rem)), 1240px);
+    margin-inline: auto;
+  }
+
+  .figma-header-container {
+    width: min(calc(100% - clamp(2rem, 7vw, 8.75rem)), 1780px);
+    margin-inline: auto;
+  }
+
+  .figma-hero-container {
+    width: min(calc(100% - clamp(2rem, 6vw, 7rem)), 1620px);
+    margin-inline: auto;
+  }
+
+}
+
+.hero-gradient {
+  isolation: isolate;
+  background:
+    radial-gradient(circle at 18% 22%, rgba(255, 241, 118, 0.86), transparent 24%),
+    radial-gradient(circle at 78% 18%, rgba(255, 255, 255, 0.34), transparent 28%),
+    radial-gradient(circle at 70% 80%, rgba(239, 68, 68, 0.28), transparent 30%),
+    linear-gradient(135deg, #ef3b00 0%, #ff6b00 40%, #facc15 100%);
+}
+
+.hero-gradient::before,
+.hero-gradient::after {
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+  pointer-events: none;
+  content: "";
+}
+
+.hero-gradient::before {
+  background:
+    repeating-linear-gradient(115deg, transparent 0 38px, rgba(255, 255, 255, 0.13) 38px 41px, transparent 41px 82px),
+    radial-gradient(circle at 58% 46%, rgba(124, 45, 18, 0.24), transparent 32%);
+  mix-blend-mode: soft-light;
+}
+
+.hero-gradient::after {
+  background:
+    linear-gradient(90deg, rgba(124, 45, 18, 0.18), transparent 28%, transparent 70%, rgba(250, 204, 21, 0.18)),
+    radial-gradient(circle at 88% 64%, rgba(255, 255, 255, 0.24), transparent 18%);
+}
+
+.figma-backdrop {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  user-select: none;
+  object-fit: cover;
+}
+
+.asset-decoration {
+  position: absolute;
+  z-index: 1;
+  pointer-events: none;
+  user-select: none;
+  object-fit: contain;
+  filter: drop-shadow(0 18px 24px rgba(124, 45, 18, 0.18));
+}
+
+.text-fit-container {
+  container-type: inline-size;
+}
+
+.section-title-box {
+  width: min(100%, 920px);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.section-title-box.text-left {
+  align-items: flex-start;
+}
+
+.section-title-box::after {
+  width: min(132px, 32vw);
+  height: 4px;
+  margin-top: 1.05rem;
+  content: "";
+  border-radius: 999px;
+  background: linear-gradient(90deg, transparent, rgba(249, 115, 22, 0.9), rgba(250, 204, 21, 0.86), transparent);
+}
+
+.section-kicker {
+  font-size: 0.85rem;
+  font-size: clamp(0.76rem, 1.65cqw, 0.92rem);
+  line-height: 1.2;
+  letter-spacing: 0.065em;
+  box-shadow: 0 10px 26px rgba(124, 45, 18, 0.08);
+  text-wrap: balance;
+}
+
+.section-heading {
+  max-width: 100%;
+  font-size: 4.35rem;
+  font-size: clamp(2.15rem, 7.6cqw, 5.25rem);
+  font-weight: 900;
+  line-height: 0.96;
+  letter-spacing: -0.035em;
+  overflow-wrap: normal;
+  text-wrap: balance;
+}
+
+.challenge-chip {
+  display: inline-flex;
+  align-items: center;
+  min-height: 2.25rem;
+  padding: 0.65rem 0.9rem;
+  background: rgba(255, 255, 255, 0.15);
+  border: 1px solid rgba(255, 255, 255, 0.36);
+  border-radius: 999px;
+  box-shadow: 0 12px 28px rgba(124, 45, 18, 0.18);
+  backdrop-filter: blur(8px);
+}
+
+.card-heading {
+  font-size: 1.3rem;
+  font-size: clamp(1.05rem, 5.2cqw, 1.34rem);
+  font-weight: 900;
+  line-height: 1.18;
+  letter-spacing: -0.015em;
+  text-wrap: balance;
+}
+
+.stage-heading {
+  font-size: 1.55rem;
+  font-size: clamp(1.08rem, 3.75cqw, 1.95rem);
+  font-weight: 900;
+  line-height: 1.02;
+  letter-spacing: -0.042em;
+  word-spacing: 0.02em;
+  text-wrap: nowrap;
+  white-space: nowrap;
+}
+
+@media (max-width: 420px) {
+  .stage-heading {
+    font-size: clamp(1.35rem, 8.2vw, 1.85rem);
+    letter-spacing: -0.035em;
+    text-wrap: balance;
+    white-space: normal;
+  }
+}
+
+.journey-heading {
+  max-width: 760px;
+  font-size: 2.35rem;
+  font-size: clamp(1.6rem, 5.8cqw, 2.85rem);
+  font-weight: 900;
+  line-height: 1.04;
+  letter-spacing: -0.035em;
+  text-wrap: balance;
+}
+
+.experience-card-title {
+  font-size: 1.45rem;
+  font-size: clamp(1.1rem, 5.8cqw, 1.62rem);
+  font-weight: 900;
+  line-height: 1.1;
+  letter-spacing: -0.025em;
+  text-wrap: balance;
+}
+
+
+.champion-trophy {
+  filter:
+    saturate(1.12)
+    contrast(1.08)
+    drop-shadow(0 24px 24px rgba(0, 0, 0, 0.34))
+    drop-shadow(0 0 42px rgba(250, 204, 21, 0.3));
+}
+
+.reward-champion-card,
+.reward-medal-card {
+  isolation: isolate;
+}
+
+.reward-champion-card::before,
+.reward-medal-card::before {
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+  pointer-events: none;
+  content: "";
+  background:
+    linear-gradient(115deg, transparent 0 44%, rgba(255, 255, 255, 0.28) 50%, transparent 58%),
+    radial-gradient(circle at 18% 82%, rgba(249, 115, 22, 0.14), transparent 30%);
+  transform: translateX(-120%);
+  animation: reward-card-shine 6.8s ease-in-out infinite;
+}
+
+.reward-medal-card::after {
+  position: absolute;
+  right: -12%;
+  bottom: -22%;
+  z-index: 0;
+  width: min(220px, 48vw);
+  aspect-ratio: 1;
+  content: "";
+  background: radial-gradient(circle, rgba(250, 204, 21, 0.18), transparent 64%);
+  border-radius: 999px;
+}
+
+.fit-copy {
+  letter-spacing: 0.005em;
+  overflow-wrap: normal;
+  text-wrap: pretty;
+}
+
+.fit-pill {
+  max-width: 100%;
+  line-height: 1.15;
+  letter-spacing: 0;
+  color: #9a3412;
+  background: linear-gradient(135deg, #ffedd5, #fef3c7);
+  border: 1px solid rgba(249, 115, 22, 0.2);
+  box-shadow: 0 10px 22px rgba(249, 115, 22, 0.12);
+  overflow-wrap: normal;
+  text-wrap: balance;
+}
+
+.score-strategy-card {
+  isolation: isolate;
+}
+
+.score-arena {
+  position: relative;
+}
+
+.launch-benefit {
+  border: 1px solid rgba(249, 115, 22, 0.16);
+  background:
+    radial-gradient(circle at 8% 50%, rgba(249, 115, 22, 0.12), transparent 22%),
+    rgba(255, 255, 255, 0.9);
+}
+
+.score-arena::before {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  content: "";
+  background:
+    linear-gradient(115deg, transparent 0 36px, rgba(255, 255, 255, 0.15) 36px 39px, transparent 39px 82px),
+    radial-gradient(circle at 14% 74%, rgba(255, 255, 255, 0.24), transparent 22%);
+  mix-blend-mode: soft-light;
+  animation: score-arena-energy 14s linear infinite;
+}
+
+.score-layout {
+  align-items: stretch;
+}
+
+.score-table-panel,
+.comeback-panel {
+  min-width: 0;
+}
+
+.score-table-scroll {
+  scrollbar-width: thin;
+  scrollbar-color: rgba(249, 115, 22, 0.42) rgba(255, 237, 213, 0.72);
+}
+
+.score-table-grid {
+  width: 100%;
+}
+
+.score-cell {
+  display: grid;
+  min-height: 5.6rem;
+  align-items: center;
+  padding: 1rem;
+  text-align: center;
+  background: rgba(255, 255, 255, 0.86);
+  border: 1px solid rgba(249, 115, 22, 0.1);
+  border-radius: 1.15rem;
+}
+
+.score-cell--header {
+  min-height: 4.3rem;
+  color: #111827;
+  font-size: 0.95rem;
+  font-weight: 900;
+  text-transform: uppercase;
+  background: #ffffff;
+  box-shadow: 0 12px 26px rgba(124, 45, 18, 0.08);
+}
+
+.score-cell--label {
+  justify-items: center;
+  background: #fff7ed;
+}
+
+.score-cell--value {
+  font-size: clamp(2rem, 4vw, 3.1rem);
+  font-weight: 900;
+  line-height: 1;
+}
+
+.score-cell--value span {
+  display: inline-block;
+  animation: score-value-pulse 3.4s ease-in-out infinite;
+}
+
+.comeback-panel {
+  position: relative;
+  isolation: isolate;
+  container-type: inline-size;
+  overflow: hidden;
+}
+
+.comeback-panel::before {
+  position: absolute;
+  inset: 0;
+  z-index: -1;
+  content: "";
+  background:
+    radial-gradient(circle at 86% 12%, rgba(250, 204, 21, 0.22), transparent 24%),
+    radial-gradient(circle at 12% 86%, rgba(249, 115, 22, 0.2), transparent 28%);
+  animation: comeback-glow 4.8s ease-in-out infinite;
+}
+
+.comeback-panel h3 {
+  font-size: clamp(2rem, 15cqw, 4rem);
+  letter-spacing: 0;
+}
+
+.bonus-card {
+  min-width: 0;
+}
+
+.bonus-card h4,
+.bonus-card p {
+  overflow-wrap: anywhere;
+}
+
+.challenge-card {
+  position: relative;
+}
+
+.challenge-card::before {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  content: "";
+  background:
+    linear-gradient(135deg, rgba(255, 107, 0, 0.16) 0 2px, transparent 2px 44px),
+    linear-gradient(135deg, transparent 0 72%, rgba(255, 107, 0, 0.12) 72% 100%);
+  opacity: 0;
+  transition: opacity 0.28s ease;
+}
+
+.challenge-card:hover::before {
+  opacity: 1;
+}
+
+.connected-card-grid {
+  position: relative;
+  isolation: isolate;
+}
+
+.connected-card-grid::before {
+  position: absolute;
+  inset: -1rem;
+  z-index: -1;
+  content: "";
+  background:
+    linear-gradient(90deg, rgba(249, 115, 22, 0.1), rgba(14, 165, 233, 0.08), rgba(250, 204, 21, 0.12)),
+    rgba(255, 255, 255, 0.34);
+  border: 1px solid rgba(255, 255, 255, 0.7);
+  border-radius: 2.25rem;
+}
+
+.connected-card {
+  position: relative;
+}
+
+.connected-card::after {
+  position: absolute;
+  right: 1.5rem;
+  bottom: 1.25rem;
+  left: 1.5rem;
+  height: 3px;
+  content: "";
+  background: linear-gradient(90deg, #f97316, #22c55e, #0ea5e9);
+  border-radius: 999px;
+  opacity: 0.22;
+}
+
+@supports not (font-size: 1cqw) {
+  .section-heading {
+    font-size: clamp(2rem, 4.6rem, 5.75rem);
+  }
+
+  .stage-heading,
+  .journey-heading {
+    font-size: 2.6rem;
+  }
+}
+
+.hero-title-image {
+  filter: drop-shadow(0 16px 0 rgba(180, 69, 0, 0.12)) drop-shadow(0 22px 42px rgba(124, 45, 18, 0.18));
+}
+
+.hero-original-graphic {
+  transform-origin: center;
+  filter: saturate(1.16) contrast(1.08) drop-shadow(0 28px 34px rgba(76, 29, 12, 0.34));
+}
+
+.hero-original-graphic--sharp {
+  animation: future-markers-pop 3.8s ease-in-out infinite;
+  filter:
+    saturate(1.38)
+    contrast(1.22)
+    brightness(1.05)
+    drop-shadow(0 30px 38px rgba(76, 29, 12, 0.38))
+    drop-shadow(0 0 26px rgba(250, 204, 21, 0.34));
+}
+
+.hero-graphic-shell {
+  isolation: isolate;
+}
+
+.hero-graphic-shell::before {
+  position: absolute;
+  inset: 10% 2% 6% 4%;
+  z-index: -1;
+  content: "";
+  background:
+    radial-gradient(circle at 46% 40%, rgba(255, 255, 255, 0.45), transparent 48%),
+    radial-gradient(circle at 54% 54%, rgba(124, 45, 18, 0.18), transparent 58%);
+  border-radius: 999px;
+  filter: blur(16px);
+}
+
+.hero-graphic-shell--energized::after {
+  position: absolute;
+  inset: 14% 4% 12% 8%;
+  z-index: -1;
+  pointer-events: none;
+  content: "";
+  background:
+    radial-gradient(circle at 48% 42%, rgba(255, 255, 255, 0.48), transparent 34%),
+    radial-gradient(circle at 56% 54%, rgba(250, 204, 21, 0.3), transparent 44%),
+    radial-gradient(circle at 70% 48%, rgba(249, 115, 22, 0.2), transparent 52%);
+  border-radius: 999px;
+  filter: blur(18px);
+  animation: future-glow-breathe 3.4s ease-in-out infinite;
+}
+
+.hero-future-glow {
+  position: absolute;
+  inset: 20% 6% 14% 10%;
+  z-index: -1;
+  pointer-events: none;
+  background:
+    radial-gradient(circle at 54% 52%, rgba(255, 255, 255, 0.34), transparent 32%),
+    radial-gradient(circle at 60% 54%, rgba(250, 204, 21, 0.44), transparent 52%);
+  border-radius: 999px;
+  filter: blur(22px);
+}
+
+.stage-sequence {
+  position: relative;
+}
+
+.stage-sequence::before {
+  position: absolute;
+  top: 1.75rem;
+  bottom: 1.75rem;
+  left: clamp(1.2rem, 3vw, 2rem);
+  width: 4px;
+  content: "";
+  background: linear-gradient(180deg, rgba(249, 115, 22, 0), rgba(249, 115, 22, 0.36), rgba(14, 165, 233, 0.24), rgba(249, 115, 22, 0));
+  border-radius: 999px;
+}
+
+.stage-card {
+  position: relative;
+  background:
+    radial-gradient(circle at 12% 18%, rgba(250, 204, 21, 0.13), transparent 28%),
+    linear-gradient(135deg, rgba(255, 250, 243, 0.98), rgba(255, 255, 255, 0.96) 48%, rgba(255, 247, 237, 0.96));
+  border-color: rgba(251, 146, 60, 0.26);
+}
+
+.stage-card::before {
+  position: absolute;
+  top: 1.8rem;
+  left: clamp(1.05rem, 3vw, 1.8rem);
+  z-index: 2;
+  width: 1rem;
+  aspect-ratio: 1;
+  content: "";
+  background: #f97316;
+  border: 4px solid #fff7ed;
+  border-radius: 999px;
+  box-shadow: 0 0 0 8px rgba(249, 115, 22, 0.12);
+}
+
+.stage-visual-panel {
+  position: relative;
+  background:
+    radial-gradient(circle at 46% 54%, rgba(250, 204, 21, 0.14), transparent 42%),
+    linear-gradient(135deg, rgba(255, 247, 237, 0.72), rgba(255, 255, 255, 0.72));
+}
+
+.stage-visual-panel::before {
+  position: absolute;
+  inset: 14% 10%;
+  z-index: 0;
+  pointer-events: none;
+  content: "";
+  background: radial-gradient(circle, rgba(124, 45, 18, 0.12), transparent 62%);
+  border-radius: 999px;
+  filter: blur(22px);
+}
+
+.stage-visual-image {
+  opacity: 1;
+  mix-blend-mode: normal;
+  filter:
+    saturate(1.08)
+    contrast(1.04)
+    drop-shadow(0 24px 28px rgba(124, 45, 18, 0.16));
+}
+
+.stage-copy-panel {
+  background: linear-gradient(180deg, rgba(255, 255, 255, 0.8), rgba(255, 247, 237, 0.7));
+}
+
+.ocean-glow {
+  position: absolute;
+  width: min(560px, 68vw);
+  aspect-ratio: 1;
+  background: radial-gradient(circle, rgba(56, 189, 248, 0.24), transparent 68%);
+  border-radius: 999px;
+  filter: blur(10px);
+}
+
+.journey-bg {
+  position: absolute;
+  inset: -8% 0;
+  background:
+    linear-gradient(180deg, rgba(2, 8, 23, 0.42), rgba(2, 8, 23, 0.92)),
+    radial-gradient(circle at 78% 22%, rgba(250, 204, 21, 0.18), transparent 18%),
+    radial-gradient(circle at 12% 38%, rgba(14, 165, 233, 0.18), transparent 24%),
+    linear-gradient(140deg, #061122 0%, #0f172a 42%, #111827 100%);
+}
+
+.journey-bg::after {
+  position: absolute;
+  right: -8%;
+  bottom: 0;
+  left: -8%;
+  height: 46%;
+  content: "";
+  background:
+    linear-gradient(135deg, transparent 0 35%, rgba(255, 255, 255, 0.08) 36% 37%, transparent 38%),
+    linear-gradient(25deg, rgba(255, 255, 255, 0.08) 0 1px, transparent 1px 100%),
+    linear-gradient(180deg, transparent, rgba(255, 107, 0, 0.12));
+  background-size: 190px 120px, 88px 88px, auto;
+  transform: skewY(-3deg);
+}
+
+.event-visual {
+  position: relative;
+  isolation: isolate;
+  width: 100%;
+  min-height: 260px;
+  height: 100%;
+  overflow: hidden;
+  border-radius: 1.6rem;
+  background: #bae6fd;
+  transform-origin: center;
+}
+
+.event-visual__sky,
+.event-visual__water,
+.event-visual__track,
+.event-visual__stage,
+.event-visual__sun,
+.event-visual__mountain,
+.event-visual__palm,
+.event-visual__spark,
+.event-visual__label {
+  position: absolute;
+}
+
+.event-visual__sky {
+  inset: 0;
+  background:
+    radial-gradient(circle at 20% 18%, rgba(255, 255, 255, 0.78), transparent 18%),
+    linear-gradient(180deg, #fef3c7 0%, #7dd3fc 54%, #0ea5e9 100%);
+}
+
+.event-visual__sun {
+  top: 11%;
+  right: 12%;
+  width: 94px;
+  aspect-ratio: 1;
+  background: #facc15;
+  border-radius: 999px;
+  box-shadow: 0 0 50px rgba(250, 204, 21, 0.54);
+}
+
+.event-visual__mountain {
+  bottom: 18%;
+  left: 0;
+  width: 72%;
+  height: 38%;
+  background: linear-gradient(135deg, #16a34a, #065f46);
+  clip-path: polygon(0 100%, 28% 18%, 50% 72%, 70% 28%, 100% 100%);
+  opacity: 0.8;
+}
+
+.event-visual__mountain--back {
+  bottom: 28%;
+  left: 16%;
+  width: 72%;
+  height: 30%;
+  background: linear-gradient(135deg, #86efac, #0891b2);
+  opacity: 0.45;
+}
+
+.event-visual__water {
+  right: -8%;
+  bottom: 0;
+  left: -8%;
+  height: 37%;
+  background:
+    repeating-linear-gradient(0deg, rgba(255, 255, 255, 0.22) 0 2px, transparent 2px 18px),
+    linear-gradient(180deg, #38bdf8, #0369a1);
+  border-radius: 60% 60% 0 0 / 28% 28% 0 0;
+}
+
+.event-visual__track {
+  right: -20%;
+  bottom: -12%;
+  left: -20%;
+  height: 38%;
+  background:
+    linear-gradient(90deg, transparent 47%, rgba(255, 255, 255, 0.44) 48% 52%, transparent 53%),
+    linear-gradient(180deg, #fed7aa, #fb923c);
+  border-radius: 50% 50% 0 0;
+  opacity: 0;
+}
+
+.event-visual__stage {
+  right: 12%;
+  bottom: 12%;
+  left: 12%;
+  height: 32%;
+  background:
+    linear-gradient(90deg, rgba(250, 204, 21, 0.8) 0 6px, transparent 6px 100%),
+    linear-gradient(180deg, #1e293b, #020817);
+  border-radius: 18px 18px 8px 8px;
+  box-shadow: 0 -42px 60px rgba(250, 204, 21, 0.12);
+  opacity: 0;
+}
+
+.event-visual__palm {
+  bottom: 15%;
+  width: 14px;
+  height: 96px;
+  background: #92400e;
+  border-radius: 999px;
+  opacity: 0;
+}
+
+.event-visual__palm::before {
+  position: absolute;
+  top: -34px;
+  left: -42px;
+  width: 96px;
+  height: 58px;
+  content: "";
+  background: conic-gradient(from 230deg, #16a34a, #86efac, #16a34a, #059669);
+  border-radius: 70% 30% 70% 30%;
+  transform: rotate(-18deg);
+}
+
+.event-visual__palm--left {
+  left: 12%;
+  transform: rotate(7deg);
+}
+
+.event-visual__palm--right {
+  right: 13%;
+  transform: rotate(-8deg);
+}
+
+.event-visual__spark {
+  width: 24px;
+  aspect-ratio: 1;
+  background: #fff176;
+  clip-path: polygon(50% 0, 60% 38%, 100% 50%, 60% 62%, 50% 100%, 40% 62%, 0 50%, 40% 38%);
+  filter: drop-shadow(0 0 12px rgba(250, 204, 21, 0.6));
+}
+
+.event-visual__spark--one {
+  top: 22%;
+  left: 18%;
+}
+
+.event-visual__spark--two {
+  top: 30%;
+  right: 22%;
+  width: 18px;
+}
+
+.event-visual__label {
+  z-index: 5;
+  left: 22px;
+  bottom: 20px;
+  padding: 0.7rem 0.9rem;
+  color: #7c2d12;
+  background: rgba(255, 255, 255, 0.78);
+  border: 1px solid rgba(255, 255, 255, 0.7);
+  border-radius: 999px;
+  box-shadow: 0 12px 28px rgba(15, 23, 42, 0.14);
+  font-size: 0.78rem;
+  font-weight: 900;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+}
+
+.event-visual--departure .event-visual__track,
+.event-visual--tug .event-visual__track,
+.event-visual--team .event-visual__track {
+  opacity: 1;
+}
+
+.event-visual--departure .event-visual__track {
+  background:
+    linear-gradient(90deg, transparent 47%, rgba(255, 255, 255, 0.68) 48% 52%, transparent 53%),
+    linear-gradient(180deg, #475569, #111827);
+}
+
+.event-visual--beach .event-visual__palm,
+.event-visual--team .event-visual__palm,
+.event-visual--shore .event-visual__palm,
+.event-visual--bar .event-visual__palm {
+  opacity: 1;
+}
+
+.event-visual--city .event-visual__mountain--front {
+  background: linear-gradient(135deg, #f59e0b, #ea580c);
+}
+
+.event-visual--city .event-visual__water {
+  background:
+    repeating-linear-gradient(0deg, rgba(255, 255, 255, 0.22) 0 2px, transparent 2px 18px),
+    linear-gradient(180deg, #64748b, #1e293b);
+}
+
+.event-visual--tug .event-visual__sun,
+.event-visual--team .event-visual__sun {
+  right: auto;
+  left: 12%;
+}
+
+.event-visual--tug .event-visual__track::after {
+  position: absolute;
+  top: 34%;
+  right: 16%;
+  left: 16%;
+  height: 6px;
+  content: "";
+  background: repeating-linear-gradient(90deg, #7c2d12 0 12px, #facc15 12px 18px);
+  border-radius: 999px;
+}
+
+.event-visual--talent .event-visual__sky,
+.event-visual--night .event-visual__sky,
+.event-visual--bar .event-visual__sky {
+  background:
+    radial-gradient(circle at 22% 22%, rgba(250, 204, 21, 0.3), transparent 16%),
+    radial-gradient(circle at 76% 18%, rgba(14, 165, 233, 0.24), transparent 16%),
+    linear-gradient(180deg, #0f172a 0%, #1e293b 48%, #020817 100%);
+}
+
+.event-visual--talent .event-visual__stage,
+.event-visual--night .event-visual__stage,
+.event-visual--bar .event-visual__stage {
+  opacity: 1;
+}
+
+.event-visual--talent .event-visual__mountain,
+.event-visual--night .event-visual__mountain,
+.event-visual--bar .event-visual__mountain,
+.event-visual--talent .event-visual__water,
+.event-visual--night .event-visual__water,
+.event-visual--bar .event-visual__water {
+  opacity: 0.35;
+}
+
+.event-visual--pool .event-visual__sky,
+.event-visual--shore .event-visual__sky {
+  background:
+    radial-gradient(circle at 24% 20%, rgba(255, 255, 255, 0.78), transparent 18%),
+    linear-gradient(180deg, #e0f2fe 0%, #7dd3fc 48%, #22c55e 100%);
+}
+
+.event-visual--pool .event-visual__water {
+  height: 58%;
+  background:
+    repeating-linear-gradient(90deg, rgba(255, 255, 255, 0.2) 0 14px, transparent 14px 28px),
+    linear-gradient(180deg, #67e8f9, #0284c7);
+}
+
+.event-visual--shore .event-visual__track {
+  opacity: 1;
+  background: linear-gradient(180deg, #fef3c7, #fdba74);
+}
+
+.event-visual--gym .event-visual__sky {
+  background:
+    linear-gradient(90deg, rgba(255, 255, 255, 0.08) 1px, transparent 1px),
+    linear-gradient(180deg, #334155, #0f172a);
+  background-size: 32px 32px, auto;
+}
+
+.event-visual--gym .event-visual__track {
+  opacity: 1;
+  background:
+    linear-gradient(90deg, transparent 45%, #f97316 45% 55%, transparent 55%),
+    linear-gradient(180deg, #1f2937, #020817);
+}
+
+.event-visual--gym .event-visual__stage {
+  opacity: 1;
+  right: 18%;
+  bottom: 28%;
+  left: 18%;
+  height: 14%;
+  background: #e5e7eb;
+  border-radius: 999px;
+}
+
+.cta-pattern::before {
+  position: absolute;
+  inset: 0;
+  content: "";
+  background:
+    repeating-linear-gradient(135deg, rgba(255, 255, 255, 0.12) 0 2px, transparent 2px 22px),
+    radial-gradient(circle at 22% 24%, rgba(255, 255, 255, 0.18), transparent 20%),
+    radial-gradient(circle at 82% 72%, rgba(250, 204, 21, 0.28), transparent 24%);
+  animation: pattern-slide 18s linear infinite;
+}
+
+@keyframes pattern-slide {
+  from {
+    transform: translate3d(0, 0, 0);
+  }
+  to {
+    transform: translate3d(34px, 0, 0);
+  }
+}
+
+@keyframes future-markers-pop {
+  0%,
+  100% {
+    filter:
+      saturate(1.34)
+      contrast(1.18)
+      brightness(1.04)
+      drop-shadow(0 30px 38px rgba(76, 29, 12, 0.36))
+      drop-shadow(0 0 20px rgba(250, 204, 21, 0.28));
+  }
+
+  50% {
+    filter:
+      saturate(1.48)
+      contrast(1.3)
+      brightness(1.1)
+      drop-shadow(0 34px 42px rgba(76, 29, 12, 0.42))
+      drop-shadow(0 0 42px rgba(250, 204, 21, 0.46));
+  }
+}
+
+@keyframes future-glow-breathe {
+  0%,
+  100% {
+    opacity: 0.54;
+    transform: scale(0.96);
+  }
+
+  50% {
+    opacity: 0.86;
+    transform: scale(1.05);
+  }
+}
+
+@keyframes score-arena-energy {
+  from {
+    background-position: 0 0, 0 0;
+  }
+
+  to {
+    background-position: 180px 0, 0 0;
+  }
+}
+
+@keyframes score-value-pulse {
+  0%,
+  100% {
+    transform: translateY(0) scale(1);
+    filter: drop-shadow(0 0 0 rgba(249, 115, 22, 0));
+  }
+
+  50% {
+    transform: translateY(-2px) scale(1.025);
+    filter: drop-shadow(0 8px 12px rgba(249, 115, 22, 0.18));
+  }
+}
+
+@keyframes comeback-glow {
+  0%,
+  100% {
+    opacity: 0.86;
+    transform: scale(1);
+  }
+
+  50% {
+    opacity: 1;
+    transform: scale(1.04);
+  }
+}
+
+@keyframes reward-card-shine {
+  0%,
+  42% {
+    transform: translateX(-120%);
+  }
+
+  64%,
+  100% {
+    transform: translateX(120%);
+  }
+}
+
+@media (max-width: 767px) {
+  .event-visual__label {
+    left: 16px;
+    bottom: 16px;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+
+  *,
+  *::before,
+  *::after {
+    scroll-behavior: auto !important;
+    animation-duration: 0.001ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.001ms !important;
+  }
+}
+
+
+/* Client feedback refinements */
+.stages-section {
+  background:
+    radial-gradient(circle at 12% 18%, rgba(249, 115, 22, 0.08), transparent 26%),
+    radial-gradient(circle at 86% 24%, rgba(14, 165, 233, 0.08), transparent 22%),
+    linear-gradient(180deg, #eef2f7 0%, #f8efe4 48%, #eef2f7 100%);
+}
+
+.stages-section .section-title-box {
+  padding: 0.75rem 1.25rem;
+  border-radius: 2rem;
+  background: rgba(255, 255, 255, 0.58);
+  box-shadow: 0 24px 70px rgba(15, 23, 42, 0.08);
+  backdrop-filter: blur(10px);
+}
+
+.stage-card {
+  border-width: 2px;
+  border-color: rgba(249, 115, 22, 0.42);
+  background:
+    radial-gradient(circle at 14% 20%, rgba(250, 204, 21, 0.18), transparent 30%),
+    linear-gradient(135deg, rgba(255, 253, 247, 1), rgba(255, 255, 255, 1) 48%, rgba(255, 244, 230, 1));
+  box-shadow:
+    0 26px 70px rgba(124, 45, 18, 0.16),
+    0 0 0 1px rgba(255, 255, 255, 0.82) inset;
+}
+
+.stage-copy-panel {
+  background:
+    linear-gradient(180deg, rgba(255, 255, 255, 0.96), rgba(255, 248, 238, 0.98));
+}
+
+.stage-visual-panel {
+  background:
+    radial-gradient(circle at 50% 50%, rgba(250, 204, 21, 0.12), transparent 44%),
+    linear-gradient(135deg, rgba(255, 251, 242, 0.92), rgba(255, 255, 255, 0.94));
+}
+
+.stage-visual-panel::before {
+  opacity: 0.18;
+}
+
+.stage-visual-image {
+  opacity: 1 !important;
+  mix-blend-mode: normal !important;
+  filter:
+    saturate(1.35)
+    contrast(1.18)
+    brightness(1.03)
+    drop-shadow(0 26px 30px rgba(124, 45, 18, 0.18));
+}
+
+.connected-card .lucide {
+  opacity: 1;
+  filter: drop-shadow(0 2px 0 rgba(255, 255, 255, 0.65));
+}
+
+.score-stack {
+  position: relative;
+  z-index: 1;
+}
+
+.score-wide-box {
+  min-height: unset;
+}
+
+.score-wide-box--strategy {
+  background:
+    radial-gradient(circle at 10% 8%, rgba(249, 115, 22, 0.11), transparent 28%),
+    linear-gradient(135deg, rgba(255, 255, 255, 0.98), rgba(255, 247, 237, 0.96));
+}
+
+.score-wide-box .score-table-panel {
+  min-height: unset;
+}
+
+.comeback-panel .bonus-grid {
+  grid-template-columns: repeat(1, minmax(0, 1fr));
+}
+
+@media (min-width: 640px) {
+  .comeback-panel .bonus-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+@media (min-width: 1280px) {
+  .comeback-panel .bonus-grid {
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+  }
+}
+
+@media (max-width: 767px) {
+  .stage-sequence {
+    padding-left: 0 !important;
+  }
+
+  .stage-sequence::before {
+    display: none;
+  }
+
+  .stage-card::before {
+    top: 1rem;
+    left: 1rem;
+  }
+}
+
+/* Fine-tune scoring section: balanced, readable, full-width table layout */
+.score-heading-row {
+  text-wrap: balance;
+}
+
+.score-table-grid {
+  width: 100%;
+}
+
+.score-cell {
+  min-height: 4.55rem;
+  padding: 0.82rem 0.65rem;
+  border-radius: 1rem;
+}
+
+.score-cell--header {
+  min-height: 3.45rem;
+  font-size: clamp(0.78rem, 1.1vw, 0.95rem);
+  line-height: 1.1;
+}
+
+.score-cell--label {
+  align-content: center;
+  gap: 0.1rem;
+}
+
+.score-row-title {
+  font-size: clamp(0.9rem, 1.55vw, 1.16rem);
+}
+
+.score-cell--value {
+  font-size: clamp(1.65rem, 3.3vw, 2.55rem);
+}
+
+.score-cell--value span {
+  animation-duration: 4.2s;
+}
+
+.comeback-panel h3 {
+  font-size: clamp(2rem, 6.2cqw, 3.2rem);
+}
+
+.bonus-card {
+  min-width: 0;
+}
+
+.bonus-card p,
+.bonus-card h4 {
+  overflow-wrap: normal;
+  word-break: normal;
+}
+
+@media (min-width: 1024px) {
+  .score-wide-box--strategy {
+    padding-inline: clamp(1.8rem, 3vw, 3rem);
+  }
+
+  .score-table-grid {
+    min-width: 0 !important;
+  }
+}
+
+@media (max-width: 767px) {
+  .score-cell {
+    min-height: 4rem;
+    padding: 0.65rem 0.5rem;
+  }
+
+  .score-cell--value {
+    font-size: 1.55rem;
+  }
+
+  .bonus-card {
+    min-height: unset;
+  }
+}
+
+/* Mobile/tablet scoring fixes: keep the score table visible and add breathing room */
+.score-stack {
+  row-gap: clamp(1.75rem, 4vw, 2.75rem);
+}
+
+.score-heading-row + .score-table-panel {
+  margin-top: clamp(1.65rem, 3.8vw, 2.25rem) !important;
+}
+
+.score-table-panel {
+  overflow: visible;
+}
+
+.score-table-scroll {
+  overflow-x: visible !important;
+}
+
+.score-row {
+  min-width: 0;
+}
+
+.score-cell {
+  min-width: 0;
+  overflow: hidden;
+}
+
+@media (max-width: 639px) {
+  .score-arena .relative.isolate {
+    padding-left: 0.9rem;
+    padding-right: 0.9rem;
+  }
+
+  .score-wide-box--strategy {
+    border-radius: 1.55rem;
+    padding: 1rem !important;
+  }
+
+  .score-heading-row {
+    padding-inline: 0.15rem;
+  }
+
+  .score-heading-row h2 {
+    font-size: clamp(1.45rem, 8.6vw, 2.05rem) !important;
+    line-height: 1.02 !important;
+  }
+
+  .score-heading-row p:last-child {
+    margin-top: 0.85rem;
+    font-size: 0.82rem;
+    line-height: 1.55;
+  }
+
+  .score-table-panel {
+    margin-top: 1.4rem !important;
+    padding: 0.55rem !important;
+    border-radius: 1.15rem !important;
+  }
+
+  .score-table-grid {
+    min-width: 0 !important;
+    width: 100% !important;
+  }
+
+  .score-row {
+    grid-template-columns: minmax(4.6rem, 1.18fr) repeat(4, minmax(0, 0.82fr)) !important;
+    gap: 0.32rem !important;
+  }
+
+  .score-cell {
+    min-height: 3.05rem !important;
+    border-radius: 0.72rem !important;
+    padding: 0.38rem 0.24rem !important;
+  }
+
+  .score-cell--header {
+    min-height: 2.55rem !important;
+    font-size: 0.55rem !important;
+    letter-spacing: -0.01em;
+    line-height: 1.05;
+  }
+
+  .score-cell--label {
+    justify-items: center;
+  }
+
+  .score-row-title {
+    font-size: 0.62rem !important;
+    line-height: 1.05 !important;
+  }
+
+  .score-cell--label span:last-child {
+    margin-top: 0.18rem !important;
+    font-size: 0.48rem !important;
+    line-height: 1.05 !important;
+  }
+
+  .score-cell--value {
+    font-size: 1rem !important;
+    line-height: 1 !important;
+  }
+
+  .score-cell--value span {
+    animation: none !important;
+  }
+}
+
+@media (min-width: 390px) and (max-width: 639px) {
+  .score-row {
+    grid-template-columns: minmax(5.25rem, 1.18fr) repeat(4, minmax(0, 0.9fr)) !important;
+    gap: 0.42rem !important;
+  }
+
+  .score-cell--header {
+    font-size: 0.6rem !important;
+  }
+
+  .score-row-title {
+    font-size: 0.68rem !important;
+  }
+
+  .score-cell--label span:last-child {
+    font-size: 0.52rem !important;
+  }
+
+  .score-cell--value {
+    font-size: 1.12rem !important;
+  }
+}
+
+/* Exact Figma-exported heading SVGs. These replace only the special display titles,
+   keeping body text, cards, layout, and the rest of the interface unchanged. */
+.section-heading-svg {
+  display: block;
+  width: min(100%, var(--heading-svg-width, 100%));
+  height: auto;
+  object-fit: contain;
+  object-position: center;
+  pointer-events: none;
+  user-select: none;
+  filter: drop-shadow(0 12px 18px rgba(249, 115, 22, 0.12));
+}
+
+.score-title-svg {
+  display: block;
+  object-fit: contain;
+  object-position: center;
+  pointer-events: none;
+  user-select: none;
+  filter: drop-shadow(0 10px 18px rgba(249, 115, 22, 0.12));
+}
+
+.comeback-title-svg {
+  display: block;
+  object-fit: contain;
+  object-position: left center;
+  pointer-events: none;
+  user-select: none;
+  filter: drop-shadow(0 12px 20px rgba(249, 115, 22, 0.18));
+}
+
+@media (max-width: 640px) {
+  .section-heading-svg {
+    max-height: 92px;
+  }
+
+  .score-title-svg {
+    max-height: 88px;
+  }
+
+  .comeback-title-svg {
+    max-width: 300px;
+    max-height: 84px;
+  }
+}
+
+
+/* Final client refinement: keep selected operational headings clean/readable, not cracked. */
+.clean-section-title .section-heading,
+.journey-heading,
+.stage-heading {
+  color: currentColor !important;
+  background: none !important;
+  -webkit-background-clip: initial !important;
+  background-clip: initial !important;
+  -webkit-text-stroke: 0 !important;
+  text-shadow: none !important;
+  font-family: "Be Vietnam Pro", ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif !important;
+  font-weight: 900;
+  letter-spacing: -0.025em;
+}
+
+.clean-section-title .section-heading {
+  color: #f97316 !important;
+  line-height: 1;
+  letter-spacing: -0.03em;
+}
+
+.journey-heading {
+  color: #ffffff !important;
+  line-height: 1.08;
+  letter-spacing: -0.02em;
+}
+
+.stage-heading {
+  color: #f97316 !important;
+  line-height: 1.08;
+  letter-spacing: -0.026em;
+}
+
+.reward-champion-card {
+  min-height: 500px;
+}
+
+.champion-trophy {
+  transform-origin: center bottom;
+  filter:
+    saturate(1.12)
+    contrast(1.08)
+    drop-shadow(0 22px 24px rgba(0, 0, 0, 0.28))
+    drop-shadow(0 0 34px rgba(250, 204, 21, 0.28));
+}
+
+.reward-medal-card > div,
+.reward-medal-card .flex {
+  align-items: center;
+}
+
+.reward-medal-icon {
+  max-width: 116px;
+  filter:
+    saturate(1.08)
+    contrast(1.06)
+    drop-shadow(0 16px 20px rgba(124, 45, 18, 0.18));
+}
+
+@media (max-width: 640px) {
+  .reward-champion-card {
+    min-height: 420px;
+  }
+
+  .champion-trophy {
+    right: 0.75rem !important;
+    bottom: 1.5rem !important;
+    height: 210px !important;
+  }
+
+  .reward-medal-icon {
+    max-width: 88px;
+  }
+}
+
+/* Hard override after client review: these operational/reward titles must stay clean,
+   readable, and must not inherit the cracked display treatment. */
+body .clean-section-title .section-heading,
+body .journey-heading,
+body .stage-heading {
+  background: transparent !important;
+  background-image: none !important;
+  -webkit-background-clip: border-box !important;
+  background-clip: border-box !important;
+  -webkit-text-fill-color: currentColor !important;
+  -webkit-text-stroke: 0 !important;
+  text-shadow: none !important;
+  filter: none !important;
+  font-family: "Be Vietnam Pro", ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif !important;
+  font-weight: 900 !important;
+}
+
+body .clean-section-title .section-heading {
+  color: #f97316 !important;
+  font-size: clamp(2.4rem, 7vw, 5.25rem);
+  line-height: 0.98;
+  letter-spacing: -0.035em;
+}
+
+body .journey-heading {
+  color: #ffffff !important;
+  line-height: 1.08;
+  letter-spacing: -0.02em;
+}
+
+body .stage-heading {
+  color: #f97316 !important;
+  line-height: 1.08;
+  letter-spacing: -0.026em;
+}
+
+body .reward-medal-icon {
+  display: block;
+  height: clamp(5rem, 8vw, 7rem);
+  max-width: 118px;
+  object-fit: contain;
+  object-position: center;
+}
+
+body .champion-trophy {
+  bottom: clamp(2rem, 4vw, 3.5rem) !important;
+  right: clamp(1rem, 4vw, 3rem) !important;
+  height: clamp(13rem, 26vw, 21.5rem) !important;
+  object-position: center bottom;
+}
+
+
+/* PDF comment pass: compact header and cleaner section labels. */
+.design-section-title .section-kicker {
+  border: 0 !important;
+  background: transparent !important;
+  color: #111827 !important;
+  box-shadow: none !important;
+  padding: 0 !important;
+  letter-spacing: 0.08em;
+}
+
+.design-section-title::after {
+  margin-top: 0.85rem;
+}
+
+.experience-section-title .section-kicker,
+.reward-section-title .section-kicker {
+  color: #111827 !important;
+  font-size: clamp(0.95rem, 2vw, 1.15rem);
+}
+
+.hero-main-title {
+  text-wrap: balance;
+}
+
+.bonus-score {
+  white-space: nowrap;
+  word-break: keep-all;
+}
+
+.registration-box {
+  background:
+    radial-gradient(circle at 15% 18%, rgba(249, 115, 22, 0.12), transparent 26%),
+    linear-gradient(180deg, #f7f7f7, #ffffff);
+}
+
+@media (max-width: 640px) {
+  .figma-header-container {
+    width: min(calc(100% - 1.5rem), 1780px);
+  }
+
+  .hero-main-title {
+    font-size: clamp(2.8rem, 14vw, 4.7rem) !important;
+  }
+
+  body .champion-trophy {
+    height: 190px !important;
+    bottom: 1.25rem !important;
+  }
+}
+
+/* New Figma SVG replacement pass: reward graphics and exact exported labels. */
+.reward-title-exact img,
+.reward-card-svg,
+.launch-benefit img {
+  display: block;
+  pointer-events: none;
+  user-select: none;
+}
+
+.reward-svg-main,
+.reward-svg-side-card {
+  isolation: isolate;
+  position: relative;
+}
+
+.reward-svg-main::before,
+.reward-svg-side-card::before {
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+  pointer-events: none;
+  content: "";
+  background:
+    linear-gradient(115deg, transparent 0 44%, rgba(255, 255, 255, 0.24) 50%, transparent 58%),
+    radial-gradient(circle at 16% 80%, rgba(249, 115, 22, 0.12), transparent 32%);
+  transform: translateX(-120%);
+  animation: reward-card-shine 7.2s ease-in-out infinite;
+}
+
+.reward-card-svg {
+  position: relative;
+  z-index: 1;
+  object-fit: contain;
+  object-position: center;
+  filter: drop-shadow(0 18px 24px rgba(124, 45, 18, 0.1));
+}
+
+.reward-card-svg--first {
+  max-width: min(100%, 520px);
+}
+
+.reward-card-svg--side {
+  max-width: min(100%, 640px);
+}
+
+.reward-svg-side-card {
+  min-height: 150px;
+  display: grid;
+  align-items: center;
+}
+
+@media (min-width: 1024px) {
+  .reward-svg-side-card {
+    min-height: 184px;
+  }
+}
+
+@media (max-width: 640px) {
+  .reward-svg-layout {
+    gap: 1rem !important;
+  }
+
+  .reward-svg-main,
+  .reward-svg-side-card {
+    border-radius: 1.55rem !important;
+    padding: 0.85rem !important;
+  }
+
+  .reward-card-svg--first {
+    max-width: 330px;
+  }
+}
+
+
+/* Exact SVG asset replacement cleanup: show newly supplied SVGs as-is. */
+.section-kicker-svg {
+  display: block;
+  object-fit: contain;
+}
+
+.reward-svg-main,
+.reward-svg-side-card {
+  box-shadow: none !important;
+  background: transparent !important;
+}
+
+.reward-svg-main::before,
+.reward-svg-side-card::before {
+  display: none !important;
+}
+
+.reward-card-svg {
+  filter: none !important;
+  width: 100%;
+}
+
+.reward-card-svg--first {
+  max-width: min(100%, 520px);
+}
+
+.reward-card-svg--side {
+  max-width: min(100%, 697px);
+}
+
+.reward-title-exact img:first-child {
+  max-width: min(100%, 455px);
+}
+
+.reward-title-exact img:nth-child(2) {
+  max-width: min(100%, 320px);
+}
+
+@media (max-width: 640px) {
+  .section-kicker-svg {
+    max-width: min(70vw, 230px) !important;
+  }
+
+  .reward-card-svg--first {
+    max-width: 360px;
+  }
+}
+
+/* Final alignment and replacement-asset polish */
+@layer components {
+  .container-x,
+  .figma-header-container,
+  .figma-hero-container {
+    width: min(calc(100% - clamp(5.5rem, 7vw, 8.75rem)), 1240px);
+    margin-inline: auto;
+  }
+
+  @media (max-width: 768px) {
+    .container-x,
+    .figma-header-container,
+    .figma-hero-container {
+      width: min(calc(100% - 2rem), 1240px);
+    }
+  }
+}
+
+.reward-classic-card {
+  contain: paint;
+}
+
+.reward-classic-card img {
+  max-width: 100%;
+}
+
+.reward-classic-card--first .champion-trophy {
+  transform-origin: 50% 80%;
+}
+
+.bonus-card {
+  overflow: visible;
+}
+
+.bonus-score {
+  max-width: 100%;
+  overflow: visible;
+  text-wrap: balance;
+}
+
+.registration-box {
+  max-width: min(100%, 1060px);
+}
+
+@media (max-width: 640px) {
+  .reward-classic-card--first {
+    min-height: 310px;
+  }
+
+  .reward-classic-card--first .champion-trophy {
+    right: 1rem;
+    bottom: 1rem;
+    width: 45%;
+  }
+}
+
+/* FINAL client pass: professional alignment, readable static race cards, responsive rewards. */
+@layer components {
+  .container-x,
+  .figma-header-container,
+  .figma-hero-container {
+    width: min(calc(100% - clamp(2rem, 7vw, 7.25rem)), 1240px) !important;
+    margin-inline: auto !important;
+  }
+
+  @media (max-width: 1024px) {
+    .container-x,
+    .figma-header-container,
+    .figma-hero-container {
+      width: min(calc(100% - 2rem), 1240px) !important;
+    }
+  }
+
+  @media (max-width: 420px) {
+    .container-x,
+    .figma-header-container,
+    .figma-hero-container {
+      width: min(calc(100% - 1.25rem), 1240px) !important;
+    }
+  }
+}
+
+/* Remove the unwanted white pill/box around the 03 CHẶNG ĐUA heading only. */
+.stages-section .stage-title-no-box {
+  padding: 0 !important;
+  border-radius: 0 !important;
+  background: transparent !important;
+  box-shadow: none !important;
+  backdrop-filter: none !important;
+}
+
+/* Make small section labels like TỔNG QUAN / ĐIỂM ĐẾN larger and closer to the SVG title. */
+.design-section-title .section-kicker {
+  margin-bottom: 0.15rem !important;
+  color: #0f172a !important;
+  font-size: clamp(1.15rem, 2.25vw, 1.8rem) !important;
+  line-height: 1 !important;
+  letter-spacing: 0.015em !important;
+}
+
+.experience-section-title .section-kicker {
+  font-size: clamp(1.25rem, 2.5vw, 2rem) !important;
+  letter-spacing: 0.025em !important;
+}
+
+.design-section-title::after {
+  margin-top: 0.65rem !important;
+}
+
+/* Keep Figma SVG headings crisp and let them resize instead of cropping on narrow tabs. */
+.section-heading-svg {
+  width: 100% !important;
+  max-width: min(100%, var(--heading-svg-width, 100%));
+}
+
+.section-title-box {
+  max-width: min(100%, 980px) !important;
+}
+
+@media (max-width: 900px) {
+  .section-title-box {
+    width: min(100%, 92vw) !important;
+  }
+  .section-heading-svg {
+    max-height: none !important;
+  }
+}
+
+/* Race stage cards: remove distracting motion/hover shifts, make headings larger and stable. */
+.stage-sequence {
+  padding-left: 0 !important;
+}
+
+.stage-sequence::before,
+.stage-card::before {
+  display: none !important;
+}
+
+.stage-card-static,
+.stage-card-static * {
+  transition-property: color, background-color, border-color, box-shadow, opacity, filter !important;
+}
+
+.stage-card-static:hover {
+  transform: none !important;
+}
+
+.stage-card-static .stage-visual-image,
+.stage-card-static:hover .stage-visual-image {
+  transform: none !important;
+}
+
+.stage-heading {
+  font-size: clamp(1.45rem, 2.1vw, 2.05rem) !important;
+  line-height: 1.04 !important;
+  letter-spacing: -0.035em !important;
+  white-space: nowrap !important;
+}
+
+.stage-copy-panel .fit-copy {
+  font-size: clamp(0.95rem, 1.05vw, 1.08rem) !important;
+  line-height: 1.75 !important;
+}
+
+@media (max-width: 760px) {
+  .stage-heading {
+    white-space: normal !important;
+    text-wrap: balance !important;
+    font-size: clamp(1.38rem, 6vw, 1.8rem) !important;
+  }
+}
+
+/* More festive but controlled confetti placement. */
+.asset-decoration {
+  max-width: 100%;
+}
+
+/* Score and bonus cards: prevent clipped +20đ/chặng and keep the table readable on mobile. */
+.bonus-card {
+  overflow: visible !important;
+}
+
+.bonus-score {
+  white-space: nowrap !important;
+  word-break: keep-all !important;
+  font-size: clamp(0.95rem, 1.15vw, 1.22rem) !important;
+}
+
+.bonus-card h4 {
+  font-size: clamp(0.72rem, 0.86vw, 0.88rem) !important;
+}
+
+.bonus-card p:not(.bonus-score) {
+  font-size: clamp(0.72rem, 0.86vw, 0.86rem) !important;
+  line-height: 1.55 !important;
+}
+
+.score-cell--value span {
+  animation: score-value-pulse 3.4s ease-in-out infinite !important;
+}
+
+@media (max-width: 640px) {
+  .score-table-scroll {
+    overflow-x: auto !important;
+  }
+  .score-table-grid {
+    min-width: 620px !important;
+  }
+}
+
+/* Rewards: restore connected, polished card layout with animated count-up values. */
+.reward-layout {
+  max-width: 1060px;
+  margin-inline: auto;
+}
+
+.reward-classic-card {
+  overflow: hidden !important;
+  contain: paint;
+}
+
+.reward-classic-card img {
+  max-width: 100%;
+}
+
+.reward-count-main,
+.reward-count-side {
+  text-shadow: 0 8px 18px rgba(124, 45, 18, 0.1);
+}
+
+.reward-medal-icon {
+  width: clamp(4.6rem, 7vw, 6.5rem) !important;
+  height: clamp(4.6rem, 7vw, 6.5rem) !important;
+  max-width: none !important;
+  object-fit: contain;
+}
+
+.reward-classic-card--first .champion-trophy {
+  width: min(42%, 260px) !important;
+  height: auto !important;
+  bottom: clamp(1.4rem, 3vw, 2.2rem) !important;
+  right: clamp(1rem, 3vw, 2.2rem) !important;
+}
+
+@media (max-width: 1023px) {
+  .reward-layout {
+    grid-template-columns: 1fr !important;
+  }
+  .reward-classic-card--first {
+    min-height: 370px !important;
+  }
+}
+
+@media (max-width: 560px) {
+  .reward-classic-card--first {
+    min-height: 330px !important;
+    padding: 1.25rem !important;
+  }
+  .reward-classic-card--first .champion-trophy {
+    width: 43% !important;
+    right: 0.9rem !important;
+    bottom: 1rem !important;
+  }
+  .reward-medal-icon {
+    width: 4.5rem !important;
+    height: 4.5rem !important;
+  }
+}
+
+/* Registration block: move as final CTA, one clean box, one-time celebration effect. */
+#registration {
+  background: #eeeeee !important;
+  padding-top: clamp(3rem, 6vw, 5rem) !important;
+  padding-bottom: clamp(3rem, 6vw, 5rem) !important;
+}
+
+.registration-box {
+  position: relative;
+  max-width: min(100%, 1120px) !important;
+  background: transparent !important;
+}
+
+.registration-box::before,
+.registration-box::after {
+  position: absolute;
+  z-index: 2;
+  width: 9px;
+  height: 9px;
+  pointer-events: none;
+  content: "";
+  border-radius: 999px;
+  opacity: 0;
+  box-shadow:
+    0 -42px 0 #ff6b00,
+    32px -26px 0 #0ea5e9,
+    -28px -18px 0 #facc15,
+    42px 20px 0 #ec4899,
+    -38px 24px 0 #22c55e,
+    0 46px 0 #ff6b00;
+  animation: one-shot-burst 1.6s ease-out 0.35s 1 both;
+}
+
+.registration-box::before {
+  top: 28%;
+  left: 14%;
+}
+
+.registration-box::after {
+  top: 30%;
+  right: 14%;
+}
+
+@keyframes one-shot-burst {
+  0% { opacity: 0; transform: scale(0.2) rotate(0deg); }
+  15% { opacity: 1; }
+  80% { opacity: 0.92; transform: scale(1.05) rotate(18deg); }
+  100% { opacity: 0; transform: scale(1.2) rotate(24deg); }
+}
+
+/* Footer: remove heavy bottom box, keep information + thin orange base line. */
+footer {
+  box-shadow: 0 -1px 0 rgba(15, 23, 42, 0.08) inset;
+}
+
+footer .container-x {
+  width: min(calc(100% - clamp(2rem, 7vw, 7.25rem)), 1240px) !important;
+}
+
+/* FINAL polish pass requested after preview: keep everything else, fix score/reward/registration only. */
+.score-heading-row img[alt="Điểm số chiến thuật"] {
+  margin-top: 0 !important;
+}
+
+.bonus-system-label {
+  filter: invert(1) brightness(2.25) contrast(1.16) drop-shadow(0 8px 14px rgba(255,255,255,0.12)) !important;
+  opacity: 0.98;
+}
+
+.comeback-title-box {
+  min-height: 100%;
+}
+
+.comeback-title-box p {
+  margin-top: auto !important;
+}
+
+.comeback-layout {
+  align-items: stretch !important;
+}
+
+.bonus-grid {
+  align-items: stretch !important;
+}
+
+.bonus-card {
+  justify-content: flex-start !important;
+  min-height: 190px !important;
+  padding: clamp(0.9rem, 1.1vw, 1.15rem) !important;
+}
+
+.bonus-card > div {
+  min-height: 78px;
+}
+
+.bonus-score {
+  display: block;
+  font-size: clamp(1.1rem, 1.35vw, 1.42rem) !important;
+  line-height: 1 !important;
+}
+
+.bonus-card h4 {
+  margin-top: 0.55rem !important;
+  min-height: 2.1em;
+  font-size: clamp(0.78rem, 0.9vw, 0.95rem) !important;
+  line-height: 1.08 !important;
+}
+
+.bonus-card p:not(.bonus-score) {
+  margin-top: auto !important;
+  padding-top: 0.9rem;
+  font-size: clamp(0.76rem, 0.86vw, 0.9rem) !important;
+  line-height: 1.55 !important;
+}
+
+@media (max-width: 1279px) {
+  .comeback-layout {
+    grid-template-columns: 1fr !important;
+  }
+
+  .bonus-card {
+    min-height: 168px !important;
+  }
+}
+
+.reward-fireworks {
+  position: relative;
+  isolation: isolate;
+}
+
+.reward-fireworks::before,
+.reward-fireworks::after {
+  position: absolute;
+  z-index: 2;
+  width: 8px;
+  height: 8px;
+  pointer-events: none;
+  content: "";
+  border-radius: 999px;
+  opacity: 0;
+  box-shadow:
+    0 -54px 0 #ff6b00,
+    42px -34px 0 #0ea5e9,
+    -38px -28px 0 #facc15,
+    54px 14px 0 #ec4899,
+    -48px 24px 0 #22c55e,
+    6px 58px 0 #ff6b00,
+    76px 46px 0 #2563eb,
+    -72px 44px 0 #f97316;
+  animation: reward-one-shot-burst 1.75s ease-out 0.4s 1 both;
+}
+
+.reward-fireworks::before {
+  top: 52%;
+  left: 23%;
+}
+
+.reward-fireworks::after {
+  top: 48%;
+  right: 22%;
+  animation-delay: 0.58s;
+}
+
+@keyframes reward-one-shot-burst {
+  0% { opacity: 0; transform: scale(0.15) rotate(0deg); }
+  18% { opacity: 1; }
+  78% { opacity: 0.95; transform: scale(1.05) rotate(18deg); }
+  100% { opacity: 0; transform: scale(1.25) rotate(26deg); }
+}
+
+.reward-classic-card {
+  contain: layout paint;
+}
+
+.reward-classic-card--first {
+  min-height: clamp(360px, 36vw, 455px) !important;
+}
+
+.reward-rank-first {
+  width: min(100%, 290px) !important;
+  max-height: 64px;
+  object-fit: contain;
+  object-position: left top;
+}
+
+.reward-count-main {
+  margin-bottom: clamp(0.4rem, 1.5vw, 1rem) !important;
+}
+
+.reward-classic-card--first .champion-trophy {
+  width: min(44%, 270px) !important;
+  right: clamp(1rem, 3.2vw, 2.45rem) !important;
+  bottom: clamp(1.35rem, 2.8vw, 2.35rem) !important;
+}
+
+.reward-side-card {
+  gap: clamp(0.9rem, 1.25vw, 1.35rem) !important;
+}
+
+.reward-rank-side {
+  width: min(100%, 210px) !important;
+  max-height: 58px;
+  object-fit: contain;
+  object-position: left center;
+}
+
+.reward-count-side {
+  font-size: clamp(1.65rem, 2.85vw, 2.28rem) !important;
+  line-height: 0.96 !important;
+}
+
+.reward-medal-icon {
+  width: clamp(4.65rem, 6vw, 5.85rem) !important;
+  height: clamp(4.65rem, 6vw, 5.85rem) !important;
+}
+
+@media (min-width: 1024px) {
+  .reward-layout {
+    grid-template-columns: minmax(0, 1.03fr) minmax(0, 0.97fr) !important;
+  }
+
+  .reward-side-card {
+    min-height: 145px !important;
+  }
+}
+
+@media (max-width: 640px) {
+  .reward-side-card {
+    flex-direction: row !important;
+    min-height: 132px !important;
+  }
+
+  .reward-rank-side {
+    max-width: 170px !important;
+  }
+
+  .reward-count-side {
+    font-size: clamp(1.45rem, 8vw, 2rem) !important;
+  }
+}
+
+#registration {
+  background: linear-gradient(180deg, #fff8ed 0%, #f3f4f6 100%) !important;
+  padding-top: clamp(2.5rem, 5vw, 4.25rem) !important;
+}
+
+.registration-inner {
+  position: relative;
+  overflow: hidden;
+}
+
+.registration-inner::before {
+  position: absolute;
+  inset: -30% auto auto -10%;
+  width: 55%;
+  height: 120%;
+  pointer-events: none;
+  content: "";
+  background: radial-gradient(circle, rgba(249,115,22,0.12), transparent 58%);
+}
+
+.registration-inner::after {
+  position: absolute;
+  inset: auto -16% -40% auto;
+  width: 58%;
+  height: 125%;
+  pointer-events: none;
+  content: "";
+  background: radial-gradient(circle, rgba(14,165,233,0.10), transparent 58%);
+}
+
+/* FINAL label sizing request: make TỔNG QUAN and ĐIỂM ĐẾN visually match HÀNH TRÌNH label size. */
+.design-section-title .section-kicker,
+.experience-section-title .section-kicker {
+  font-size: clamp(2rem, 4.2vw, 2.6rem) !important;
+  line-height: 1 !important;
+  font-weight: 900 !important;
+  letter-spacing: 0.02em !important;
+  padding: 0.15rem 0.55rem !important;
+  margin-bottom: 0.35rem !important;
+}
+
+@media (max-width: 640px) {
+  .design-section-title .section-kicker,
+  .experience-section-title .section-kicker {
+    font-size: clamp(1.45rem, 7vw, 2rem) !important;
+    padding-inline: 0.35rem !important;
+  }
+}
+
+/* Final requested polish: align bonus cards, center main prize copy, stronger reward fireworks, CTA hotline text. */
+.comeback-panel .bonus-grid {
+  align-items: stretch !important;
+}
+
+.comeback-panel .bonus-card {
+  display: grid !important;
+  grid-template-rows: auto auto 1fr !important;
+  min-height: 190px !important;
+  height: 100% !important;
+  align-content: start !important;
+  justify-content: stretch !important;
+  padding: clamp(1rem, 1.15vw, 1.18rem) !important;
+}
+
+.comeback-panel .bonus-card > div {
+  min-height: 76px !important;
+  display: flex !important;
+  flex-direction: column !important;
+  justify-content: flex-start !important;
+}
+
+.comeback-panel .bonus-score {
+  display: block !important;
+  min-height: 1.15em !important;
+  font-size: clamp(1.08rem, 1.25vw, 1.32rem) !important;
+  line-height: 1 !important;
+  white-space: nowrap !important;
+}
+
+.comeback-panel .bonus-card h4 {
+  min-height: 2.2em !important;
+  margin-top: 0.55rem !important;
+  display: flex !important;
+  align-items: flex-start !important;
+  font-size: clamp(0.78rem, 0.86vw, 0.92rem) !important;
+  line-height: 1.1 !important;
+}
+
+.comeback-panel .bonus-card p:not(.bonus-score) {
+  margin-top: 0.85rem !important;
+  padding-top: 0 !important;
+  align-self: start !important;
+  font-size: clamp(0.78rem, 0.86vw, 0.9rem) !important;
+  line-height: 1.55 !important;
+}
+
+.reward-classic-card--first > .relative.z-10 {
+  max-width: 46% !important;
+  align-items: center !important;
+  text-align: center !important;
+}
+
+.reward-classic-card--first .reward-count-main {
+  width: 100% !important;
+  margin: auto 0 clamp(0.8rem, 2vw, 1.55rem) !important;
+  text-align: center !important;
+}
+
+.reward-classic-card--first .reward-count-main p:first-child {
+  font-size: clamp(2.65rem, 4.5vw, 3.65rem) !important;
+}
+
+.reward-classic-card--first .reward-count-main p:nth-child(2) {
+  font-size: clamp(2.25rem, 3.8vw, 3.05rem) !important;
+}
+
+.reward-classic-card--first .champion-trophy {
+  right: clamp(1.2rem, 4vw, 3rem) !important;
+  bottom: clamp(1.3rem, 3.1vw, 2.55rem) !important;
+  width: min(45%, 285px) !important;
+}
+
+.reward-layout {
+  position: relative !important;
+  isolation: isolate;
+}
+
+.reward-layout::before,
+.reward-layout::after {
+  position: absolute;
+  z-index: 4;
+  width: 10px;
+  height: 10px;
+  pointer-events: none;
+  content: "";
+  border-radius: 999px;
+  opacity: 0;
+  box-shadow:
+    0 -72px 0 #ff6b00,
+    58px -50px 0 #facc15,
+    -56px -44px 0 #0ea5e9,
+    78px -4px 0 #22c55e,
+    -76px 10px 0 #ec4899,
+    36px 62px 0 #2563eb,
+    -42px 68px 0 #f97316,
+    92px 78px 0 #facc15,
+    -96px 88px 0 #22c55e;
+  animation: reward-burst-and-fall 2.35s cubic-bezier(.16,1,.3,1) 0.35s 1 both;
+}
+
+.reward-layout::before {
+  top: 18%;
+  left: 30%;
+}
+
+.reward-layout::after {
+  top: 20%;
+  right: 25%;
+  animation-delay: 0.68s;
+}
+
+@keyframes reward-burst-and-fall {
+  0% { opacity: 0; transform: translateY(0) scale(0.15) rotate(0deg); }
+  15% { opacity: 1; }
+  48% { opacity: 1; transform: translateY(0) scale(1.08) rotate(24deg); }
+  100% { opacity: 0; transform: translateY(95px) scale(0.88) rotate(72deg); }
+}
+
+.cta-pattern a[href^="tel:"] {
+  white-space: normal !important;
+  text-transform: none !important;
+  line-height: 1.35 !important;
+  padding-inline: clamp(1.25rem, 3vw, 2rem) !important;
+}
+
+.cta-pattern a[href^="tel:"] span {
+  display: inline-block;
+}
+
+@media (max-width: 640px) {
+  .reward-classic-card--first > .relative.z-10 {
+    max-width: 52% !important;
+  }
+
+  .reward-classic-card--first .champion-trophy {
+    width: min(48%, 210px) !important;
+  }
+
+  .comeback-panel .bonus-card {
+    min-height: 160px !important;
+  }
+}
+
+
+/* Final compact header: reduce vertical space without changing layout. */
+@layer components {
+  .figma-header-container {
+    min-height: 0;
+  }
+}
+
+/* Final reward typography polish for Vercel-ready build */
+.reward-rank-text {
+  margin: 0 !important;
+  font-family: Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif !important;
+  font-weight: 950 !important;
+  letter-spacing: -0.045em !important;
+  line-height: 0.95 !important;
+  color: #ed6600 !important;
+  white-space: nowrap !important;
+  text-transform: none !important;
+  text-wrap: nowrap !important;
+}
+
+.reward-rank-text--first {
+  font-size: clamp(2.15rem, 3.65vw, 3.25rem) !important;
+  transform: translateY(-0.25rem);
+}
+
+.reward-rank-text--side {
+  font-size: clamp(1.55rem, 2.35vw, 2.08rem) !important;
+}
+
+.reward-side-card .relative.z-10.min-w-0.flex-1 {
+  display: flex !important;
+  min-width: 0 !important;
+  flex-direction: column !important;
+  justify-content: center !important;
+  align-items: flex-start !important;
+}
+
+.reward-count-side {
+  font-size: clamp(1.85rem, 2.75vw, 2.45rem) !important;
+  font-weight: 950 !important;
+  line-height: 0.96 !important;
+  letter-spacing: -0.055em !important;
+  white-space: nowrap !important;
+  text-wrap: nowrap !important;
+}
+
+.reward-first-content {
+  justify-content: center !important;
+  align-items: center !important;
+  text-align: center !important;
+  gap: clamp(1rem, 1.7vw, 1.65rem) !important;
+  transform: translateY(-0.65rem);
+}
+
+.reward-classic-card--first .reward-count-main {
+  margin: 0 !important;
+  transform: translateY(-0.45rem);
+}
+
+.reward-money-first {
+  font-size: clamp(2.95rem, 4.75vw, 4rem) !important;
+  white-space: nowrap !important;
+  text-wrap: nowrap !important;
+}
+
+.reward-cup-text {
+  font-size: clamp(1.7rem, 3vw, 2.55rem) !important;
+  white-space: nowrap !important;
+  text-wrap: nowrap !important;
+}
+
+.reward-classic-card--first .champion-trophy {
+  top: 50% !important;
+  bottom: auto !important;
+  transform: translateY(-47%) !important;
+  width: min(45%, 290px) !important;
+}
+
+@media (max-width: 900px) {
+  .reward-rank-text--first {
+    font-size: clamp(1.75rem, 7vw, 2.65rem) !important;
+  }
+
+  .reward-money-first {
+    font-size: clamp(2.35rem, 9vw, 3.35rem) !important;
+  }
+
+  .reward-cup-text {
+    font-size: clamp(1.35rem, 5.2vw, 2rem) !important;
+  }
+
+  .reward-rank-text--side {
+    font-size: clamp(1.25rem, 5vw, 1.8rem) !important;
+  }
+}
+
+@media (max-width: 640px) {
+  .reward-classic-card--first {
+    min-height: 315px !important;
+  }
+
+  .reward-first-content {
+    max-width: 58% !important;
+    transform: translateY(-0.25rem);
+  }
+
+  .reward-classic-card--first .champion-trophy {
+    width: min(44%, 185px) !important;
+    right: 0.85rem !important;
+  }
+
+  .reward-rank-text--first {
+    font-size: clamp(1.45rem, 6.8vw, 2.05rem) !important;
+  }
+
+  .reward-money-first {
+    font-size: clamp(2rem, 8.6vw, 2.85rem) !important;
+  }
+
+  .reward-cup-text {
+    font-size: clamp(1.05rem, 4.8vw, 1.55rem) !important;
+  }
+
+  .reward-rank-text--side {
+    font-size: clamp(1.08rem, 5vw, 1.45rem) !important;
+  }
+
+  .reward-count-side {
+    font-size: clamp(1.45rem, 7vw, 2rem) !important;
+  }
+}
+
+/* Final reward typography/layout correction: match Figma card balance, keep labels one-line. */
+.reward-classic-card--first {
+  align-items: stretch !important;
+}
+
+.reward-classic-card--first .reward-first-content,
+.reward-classic-card--first > .relative.z-10 {
+  max-width: 52% !important;
+  min-height: 100% !important;
+  align-items: flex-start !important;
+  justify-content: flex-start !important;
+  gap: clamp(2.3rem, 5.2vw, 4.8rem) !important;
+  text-align: left !important;
+}
+
+.reward-rank-text {
+  font-family: "Be Vietnam Pro", Inter, ui-sans-serif, system-ui, sans-serif !important;
+  font-weight: 900 !important;
+  letter-spacing: -0.045em !important;
+  line-height: 0.98 !important;
+  white-space: nowrap !important;
+  text-transform: none !important;
+}
+
+.reward-rank-text--first {
+  color: #f26a21 !important;
+  font-size: clamp(2.2rem, 4.15vw, 4rem) !important;
+}
+
+.reward-classic-card--first .reward-count-main {
+  width: auto !important;
+  margin: 0 !important;
+  text-align: left !important;
+  transform: translateY(clamp(-1.25rem, -1.8vw, -0.55rem));
+}
+
+.reward-classic-card--first .reward-money-first,
+.reward-classic-card--first .reward-count-main p:first-child {
+  color: #334155 !important;
+  font-size: clamp(2.6rem, 4.2vw, 3.8rem) !important;
+  line-height: 0.92 !important;
+  letter-spacing: -0.055em !important;
+}
+
+.reward-classic-card--first .reward-cup-text,
+.reward-classic-card--first .reward-count-main p:nth-child(2) {
+  color: #334155 !important;
+  margin-top: 0.7rem !important;
+  font-size: clamp(2.15rem, 3.45vw, 3.15rem) !important;
+  line-height: 0.98 !important;
+  letter-spacing: -0.055em !important;
+}
+
+.reward-classic-card--first .champion-trophy {
+  width: min(46%, 305px) !important;
+  right: clamp(1rem, 3.2vw, 2.6rem) !important;
+  bottom: clamp(1.05rem, 2.4vw, 2rem) !important;
+}
+
+.reward-side-card {
+  display: grid !important;
+  grid-template-columns: clamp(4.6rem, 6.2vw, 6rem) minmax(0, 1fr) !important;
+  align-items: center !important;
+  gap: clamp(1rem, 1.8vw, 1.6rem) !important;
+}
+
+.reward-side-card .reward-medal-icon {
+  justify-self: center !important;
+  width: clamp(4.25rem, 5.9vw, 5.8rem) !important;
+  height: clamp(4.25rem, 5.9vw, 5.8rem) !important;
+}
+
+.reward-rank-text--side {
+  display: block !important;
+  width: 100% !important;
+  color: #3f3f46 !important;
+  font-size: clamp(1.42rem, 2.35vw, 2.25rem) !important;
+  line-height: 0.98 !important;
+  letter-spacing: -0.055em !important;
+  white-space: nowrap !important;
+}
+
+.reward-side-card .reward-count-side {
+  margin-top: 0.35rem !important;
+  color: #f05a0a !important;
+  font-size: clamp(1.6rem, 2.7vw, 2.65rem) !important;
+  line-height: 0.95 !important;
+  letter-spacing: -0.055em !important;
+  white-space: nowrap !important;
+}
+
+@media (max-width: 1023px) {
+  .reward-classic-card--first .reward-first-content,
+  .reward-classic-card--first > .relative.z-10 {
+    max-width: 53% !important;
+    gap: clamp(2rem, 7vw, 4rem) !important;
+  }
+
+  .reward-rank-text--side {
+    font-size: clamp(1.45rem, 4.5vw, 2.15rem) !important;
+  }
+}
+
+@media (max-width: 640px) {
+  .reward-classic-card--first .reward-first-content,
+  .reward-classic-card--first > .relative.z-10 {
+    max-width: 55% !important;
+    gap: clamp(1.7rem, 8vw, 3.1rem) !important;
+  }
+
+  .reward-rank-text--first {
+    font-size: clamp(1.65rem, 8.2vw, 2.55rem) !important;
+  }
+
+  .reward-classic-card--first .reward-money-first,
+  .reward-classic-card--first .reward-count-main p:first-child {
+    font-size: clamp(1.95rem, 8vw, 2.75rem) !important;
+  }
+
+  .reward-classic-card--first .reward-cup-text,
+  .reward-classic-card--first .reward-count-main p:nth-child(2) {
+    font-size: clamp(1.55rem, 6.8vw, 2.25rem) !important;
+  }
+
+  .reward-side-card {
+    grid-template-columns: 4.1rem minmax(0, 1fr) !important;
+    gap: 0.85rem !important;
+  }
+
+  .reward-rank-text--side {
+    font-size: clamp(1.02rem, 5.2vw, 1.55rem) !important;
+    letter-spacing: -0.05em !important;
+  }
+
+  .reward-side-card .reward-count-side {
+    font-size: clamp(1.3rem, 6.4vw, 2rem) !important;
+  }
+}
+
+/* FINAL client update: clean typography, clear logo, no overlapping prize text/cup, clean destination images/form. */
+header .figma-header-container img[alt="Xuan Cau Holdings"] {
+  height: 46px !important;
+  width: 58px !important;
+  object-fit: contain !important;
+  opacity: 1 !important;
+  filter: drop-shadow(0 6px 12px rgba(124,45,18,0.12)) !important;
+}
+
+@media (max-width: 640px) {
+  header .figma-header-container img[alt="Xuan Cau Holdings"] {
+    height: 40px !important;
+    width: 50px !important;
+  }
+}
+
+.comeback-clean-heading {
+  border-radius: 1.25rem;
+  background: rgba(255,255,255,0.08);
+  padding: clamp(1rem, 1.6vw, 1.25rem);
+  box-shadow: inset 0 0 0 1px rgba(255,255,255,0.09);
+}
+
+.bonus-system-text {
+  color: #f8fafc;
+  font-size: clamp(1.25rem, 2vw, 1.7rem);
+  font-weight: 950;
+  letter-spacing: -0.02em;
+  line-height: 1;
+  text-transform: uppercase;
+  text-shadow: 0 8px 22px rgba(255,255,255,0.10);
+}
+
+.comeback-title-text {
+  margin-top: 0.75rem;
+  color: #fb923c;
+  font-size: clamp(1.85rem, 4vw, 3.6rem);
+  font-weight: 950;
+  letter-spacing: -0.055em;
+  line-height: 0.95;
+  text-transform: uppercase;
+  text-shadow: 0 14px 26px rgba(249,115,22,0.18);
+}
+
+.comeback-title-box p:not(.bonus-system-text):not(.comeback-title-text) {
+  background: rgba(255,255,255,0.94) !important;
+  color: #111827 !important;
+}
+
+.reward-first-balanced {
+  display: block !important;
+  min-height: clamp(360px, 36vw, 455px) !important;
+}
+
+.reward-first-balanced .reward-first-layout {
+  grid-template-columns: minmax(0, 0.95fr) minmax(170px, 1.05fr) !important;
+  align-items: center !important;
+}
+
+.reward-first-balanced .reward-first-copy {
+  max-width: none !important;
+  min-height: auto !important;
+  align-items: flex-start !important;
+  justify-content: center !important;
+  gap: 0 !important;
+  text-align: left !important;
+  transform: none !important;
+}
+
+.reward-first-balanced .reward-rank-text--first {
+  color: #f26a21 !important;
+  font-size: clamp(2.15rem, 4.15vw, 3.85rem) !important;
+  line-height: 0.98 !important;
+  white-space: nowrap !important;
+  transform: none !important;
+}
+
+.reward-first-balanced .reward-count-main {
+  width: 100% !important;
+  margin: clamp(1.3rem, 2.8vw, 2rem) 0 0 !important;
+  text-align: left !important;
+  transform: none !important;
+}
+
+.reward-first-balanced .reward-money-first,
+.reward-first-balanced .reward-count-main p:first-child {
+  color: #334155 !important;
+  font-size: clamp(2.25rem, 4vw, 3.45rem) !important;
+  line-height: 0.95 !important;
+  letter-spacing: -0.055em !important;
+  white-space: nowrap !important;
+}
+
+.reward-first-balanced .reward-cup-text,
+.reward-first-balanced .reward-count-main p:nth-child(2) {
+  color: #334155 !important;
+  margin-top: 0.65rem !important;
+  font-size: clamp(1.72rem, 3vw, 2.55rem) !important;
+  line-height: 1.02 !important;
+  letter-spacing: -0.055em !important;
+}
+
+.reward-first-balanced .reward-first-trophy-wrap {
+  align-self: center !important;
+}
+
+.reward-first-balanced .champion-trophy,
+.reward-classic-card--first.reward-first-balanced .champion-trophy {
+  position: static !important;
+  inset: auto !important;
+  width: min(100%, 285px) !important;
+  max-width: 285px !important;
+  height: auto !important;
+  transform: none !important;
+  object-fit: contain !important;
+}
+
+.reward-rank-text--side {
+  color: #2f2f35 !important;
+  white-space: nowrap !important;
+}
+
+.reward-side-card .reward-count-side {
+  color: #f05a0a !important;
+}
+
+@media (max-width: 640px) {
+  .reward-first-balanced {
+    min-height: 410px !important;
+  }
+
+  .reward-first-balanced .reward-first-layout {
+    grid-template-columns: 1fr !important;
+    gap: 0.75rem !important;
+  }
+
+  .reward-first-balanced .reward-first-copy {
+    align-items: center !important;
+    text-align: center !important;
+  }
+
+  .reward-first-balanced .reward-count-main {
+    text-align: center !important;
+    margin-top: 1rem !important;
+  }
+
+  .reward-first-balanced .reward-rank-text--first {
+    font-size: clamp(1.9rem, 9vw, 2.65rem) !important;
+  }
+
+  .reward-first-balanced .reward-money-first,
+  .reward-first-balanced .reward-count-main p:first-child {
+    font-size: clamp(2rem, 10vw, 2.95rem) !important;
+  }
+
+  .reward-first-balanced .reward-cup-text,
+  .reward-first-balanced .reward-count-main p:nth-child(2) {
+    font-size: clamp(1.55rem, 7vw, 2.15rem) !important;
+  }
+
+  .reward-first-balanced .champion-trophy,
+  .reward-classic-card--first.reward-first-balanced .champion-trophy {
+    max-width: 190px !important;
+  }
+}
+
+#registration .registration-inner {
+  background: linear-gradient(135deg, rgba(255,255,255,0.96), rgba(255,247,237,0.9) 48%, rgba(240,249,255,0.88)) !important;
+  border-color: rgba(249,115,22,0.18) !important;
+}
+
+#registration h2 {
+  color: #f05a0a !important;
+  text-shadow: none !important;
+}
+
+/* Final polish pass: bonus score panel and reward card alignment. */
+.comeback-title-box {
+  min-height: 0 !important;
+}
+
+.bonus-system-text {
+  color: #ffffff !important;
+  font-size: clamp(1.28rem, 2.1vw, 2rem) !important;
+  line-height: 1.02 !important;
+  letter-spacing: -0.045em !important;
+  text-shadow: 0 10px 24px rgba(255, 255, 255, 0.12) !important;
+}
+
+.comeback-title-svg-main {
+  display: block;
+  max-width: 330px;
+  max-height: 112px;
+  object-fit: contain;
+  object-position: left center;
+  filter: drop-shadow(0 12px 22px rgba(249, 115, 22, 0.22));
+}
+
+.bonus-card {
+  align-self: stretch;
+}
+
+.bonus-card .bonus-title {
+  min-height: 2.15em;
+}
+
+.bonus-card .bonus-copy {
+  min-height: 6.1em;
+}
+
+.reward-first-new {
+  isolation: isolate;
+}
+
+.reward-rank-text {
+  font-family: "Be Vietnam Pro", ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif !important;
+  font-weight: 900 !important;
+  text-shadow: none !important;
+  filter: none !important;
+  background: transparent !important;
+  -webkit-text-fill-color: currentColor !important;
+}
+
+.reward-rank-text--first {
+  width: 100%;
+  color: #f36a16 !important;
+  font-size: clamp(2.25rem, 4.05vw, 4.15rem) !important;
+  line-height: 0.92 !important;
+  letter-spacing: -0.055em !important;
+  white-space: nowrap;
+}
+
+.reward-first-body {
+  position: relative;
+}
+
+.reward-first-copy-new {
+  position: relative;
+  z-index: 4;
+  max-width: 260px;
+}
+
+.reward-money-first {
+  color: #334155 !important;
+  font-size: clamp(2rem, 3.2vw, 3.25rem) !important;
+  white-space: nowrap;
+}
+
+.reward-cup-text {
+  color: #334155 !important;
+  font-size: clamp(1.55rem, 2.55vw, 2.65rem) !important;
+}
+
+.reward-first-trophy-wrap-new {
+  position: relative;
+  min-height: 260px;
+}
+
+.trophy-gold-glow {
+  position: absolute;
+  inset: 12% 4% 0;
+  z-index: 0;
+  border-radius: 999px;
+  background:
+    radial-gradient(circle at 50% 55%, rgba(255, 215, 88, 0.48), transparent 55%),
+    radial-gradient(circle at 50% 35%, rgba(255, 255, 255, 0.58), transparent 36%);
+  filter: blur(10px);
+  pointer-events: none;
+}
+
+.champion-trophy-new {
+  max-width: clamp(185px, 24vw, 305px);
+  max-height: 340px;
+  filter:
+    saturate(1.16)
+    contrast(1.08)
+    drop-shadow(0 22px 26px rgba(92, 44, 0, 0.28))
+    drop-shadow(0 0 34px rgba(255, 212, 66, 0.42));
+}
+
+.reward-rank-text--side {
+  color: #343434 !important;
+  font-size: clamp(1.75rem, 3vw, 3.15rem) !important;
+  line-height: 0.95 !important;
+  letter-spacing: -0.055em !important;
+  white-space: nowrap;
+}
+
+.reward-count-side {
+  color: #f36a16 !important;
+  font-size: clamp(1.55rem, 2.55vw, 2.55rem) !important;
+  line-height: 0.95 !important;
+  font-weight: 900 !important;
+  letter-spacing: -0.04em !important;
+  white-space: nowrap;
+}
+
+@media (max-width: 1023px) {
+  .reward-first-body {
+    grid-template-columns: 0.9fr 1.1fr !important;
+  }
+
+  .reward-first-copy-new {
+    max-width: 230px;
+  }
+
+  .champion-trophy-new {
+    max-width: clamp(165px, 32vw, 245px);
+  }
+}
+
+@media (max-width: 640px) {
+  .comeback-title-svg-main {
+    max-width: 290px;
+    max-height: 88px;
+  }
+
+  .bonus-card .bonus-title,
+  .bonus-card .bonus-copy {
+    min-height: 0;
+  }
+
+  .reward-first-balanced {
+    min-height: 420px !important;
+    padding: 1.25rem !important;
+  }
+
+  .reward-first-body {
+    grid-template-columns: 1fr !important;
+    align-items: center !important;
+    gap: 0.75rem !important;
+  }
+
+  .reward-rank-text--first {
+    font-size: clamp(2rem, 11vw, 3.1rem) !important;
+    white-space: nowrap;
+  }
+
+  .reward-first-copy-new {
+    order: 2;
+    max-width: 100%;
+    justify-self: center;
+    padding-bottom: 0 !important;
+    text-align: center;
+  }
+
+  .reward-first-trophy-wrap-new {
+    order: 1;
+    min-height: 185px;
+    align-items: center !important;
+    padding-bottom: 0 !important;
+  }
+
+  .champion-trophy-new {
+    max-width: 178px;
+    max-height: 190px;
+  }
+
+  .reward-money-first {
+    font-size: clamp(1.85rem, 9vw, 2.55rem) !important;
+  }
+
+  .reward-cup-text {
+    font-size: clamp(1.45rem, 7.5vw, 2.1rem) !important;
+  }
+
+  .reward-rank-text--side {
+    font-size: clamp(1.45rem, 6.4vw, 2.2rem) !important;
+  }
+
+  .reward-count-side {
+    font-size: clamp(1.35rem, 6.2vw, 2rem) !important;
+  }
+}
+
+/* Final client correction 2026-05-21: score heading and reward cup/text balance. */
+header .figma-header-container img[alt="Xuan Cau Holdings"] {
+  height: 52px !important;
+  width: 68px !important;
+  opacity: 1 !important;
+  filter:
+    brightness(1.08)
+    contrast(1.12)
+    saturate(1.08)
+    drop-shadow(0 7px 14px rgba(124, 45, 18, 0.16)) !important;
+}
+
+.comeback-title-box {
+  justify-content: center !important;
+  border-radius: 0 !important;
+  background: transparent !important;
+  box-shadow: none !important;
+  ring: 0 !important;
+}
+
+.comeback-clean-heading {
+  width: 100% !important;
+  padding: 0 !important;
+  border-radius: 0 !important;
+  background: transparent !important;
+  box-shadow: none !important;
+}
+
+.bonus-system-text {
+  display: block !important;
+  color: #ffffff !important;
+  font-size: clamp(1.35rem, 1.8vw, 1.78rem) !important;
+  font-weight: 950 !important;
+  line-height: 0.98 !important;
+  letter-spacing: -0.055em !important;
+  white-space: nowrap !important;
+  text-wrap: nowrap !important;
+}
+
+.comeback-title-svg-main {
+  display: block !important;
+  width: 100% !important;
+  max-width: min(100%, 360px) !important;
+  max-height: 94px !important;
+  margin-top: 0.55rem !important;
+  object-fit: contain !important;
+  object-position: left center !important;
+}
+
+.comeback-title-box p:not(.bonus-system-text):not(.comeback-title-text) {
+  margin-top: 1rem !important;
+  padding: 1rem !important;
+  font-size: clamp(0.78rem, 0.9vw, 0.9rem) !important;
+  line-height: 1.52 !important;
+}
+
+.comeback-panel .bonus-card {
+  min-height: 158px !important;
+  padding: clamp(0.9rem, 1vw, 1.05rem) !important;
+}
+
+.comeback-panel .bonus-card > div {
+  min-height: 62px !important;
+}
+
+.comeback-panel .bonus-card p:not(.bonus-score) {
+  margin-top: 0.65rem !important;
+  font-size: clamp(0.74rem, 0.82vw, 0.86rem) !important;
+  line-height: 1.48 !important;
+}
+
+.comeback-panel .bonus-card h4 {
+  min-height: 1.9em !important;
+  font-size: clamp(0.76rem, 0.82vw, 0.88rem) !important;
+}
+
+.reward-classic-card--first.reward-first-balanced {
+  min-height: clamp(390px, 35vw, 455px) !important;
+  padding: clamp(1.35rem, 2.1vw, 1.9rem) !important;
+}
+
+.reward-first-new {
+  height: 100% !important;
+}
+
+.reward-rank-text--first {
+  display: block !important;
+  width: 100% !important;
+  text-align: center !important;
+  color: #f36a16 !important;
+  font-size: clamp(2.25rem, 3.8vw, 3.85rem) !important;
+  line-height: 0.95 !important;
+  letter-spacing: -0.06em !important;
+  white-space: nowrap !important;
+  text-wrap: nowrap !important;
+}
+
+.reward-first-body {
+  grid-template-columns: minmax(0, 0.88fr) minmax(180px, 1.12fr) !important;
+  align-items: end !important;
+  gap: clamp(0.75rem, 1.6vw, 1.4rem) !important;
+}
+
+.reward-first-copy-new {
+  z-index: 4 !important;
+  max-width: 240px !important;
+  align-self: end !important;
+  justify-self: start !important;
+  padding-bottom: clamp(2.2rem, 5vw, 3.75rem) !important;
+  text-align: left !important;
+}
+
+.reward-money-first {
+  color: #334155 !important;
+  font-size: clamp(2.15rem, 3.35vw, 3.25rem) !important;
+  line-height: 0.92 !important;
+  letter-spacing: -0.06em !important;
+  white-space: nowrap !important;
+}
+
+.reward-cup-text {
+  color: #334155 !important;
+  margin-top: 0.55rem !important;
+  font-size: clamp(1.55rem, 2.55vw, 2.45rem) !important;
+  line-height: 0.98 !important;
+  letter-spacing: -0.055em !important;
+}
+
+.reward-first-trophy-wrap-new {
+  z-index: 2 !important;
+  min-height: clamp(260px, 28vw, 335px) !important;
+  align-items: end !important;
+  justify-content: center !important;
+}
+
+.champion-trophy-new {
+  width: auto !important;
+  max-width: clamp(225px, 23vw, 320px) !important;
+  max-height: clamp(255px, 30vw, 360px) !important;
+  object-fit: contain !important;
+  filter:
+    saturate(1.16)
+    contrast(1.1)
+    drop-shadow(0 24px 28px rgba(92, 44, 0, 0.28))
+    drop-shadow(0 0 40px rgba(255, 212, 66, 0.5)) !important;
+}
+
+.trophy-gold-glow {
+  inset: 7% -4% 0 !important;
+  background:
+    radial-gradient(circle at 50% 52%, rgba(255, 214, 64, 0.56), transparent 56%),
+    radial-gradient(circle at 50% 32%, rgba(255, 255, 255, 0.58), transparent 34%) !important;
+  filter: blur(12px) !important;
+}
+
+.reward-rank-text--side {
+  color: #343434 !important;
+  font-size: clamp(1.48rem, 2.2vw, 2.3rem) !important;
+  line-height: 0.96 !important;
+  letter-spacing: -0.06em !important;
+  white-space: nowrap !important;
+  text-wrap: nowrap !important;
+}
+
+.reward-side-card .reward-count-side {
+  font-size: clamp(1.42rem, 2.25vw, 2.25rem) !important;
+  line-height: 0.95 !important;
+  white-space: nowrap !important;
+}
+
+@media (max-width: 1023px) {
+  .comeback-title-svg-main {
+    max-width: 330px !important;
+  }
+
+  .reward-first-body {
+    grid-template-columns: minmax(0, 0.84fr) minmax(165px, 1.16fr) !important;
+  }
+
+  .champion-trophy-new {
+    max-width: clamp(210px, 34vw, 295px) !important;
+  }
+}
+
+@media (max-width: 640px) {
+  header .figma-header-container img[alt="Xuan Cau Holdings"] {
+    height: 44px !important;
+    width: 58px !important;
+  }
+
+  .bonus-system-text {
+    font-size: clamp(1.15rem, 5.6vw, 1.65rem) !important;
+  }
+
+  .comeback-title-svg-main {
+    max-width: 300px !important;
+    max-height: 78px !important;
+  }
+
+  .reward-classic-card--first.reward-first-balanced {
+    min-height: 440px !important;
+  }
+
+  .reward-first-body {
+    grid-template-columns: 1fr !important;
+    gap: 0.2rem !important;
+  }
+
+  .reward-first-trophy-wrap-new {
+    order: 1 !important;
+    min-height: 205px !important;
+    padding-bottom: 0 !important;
+  }
+
+  .champion-trophy-new {
+    max-width: 205px !important;
+    max-height: 220px !important;
+  }
+
+  .reward-first-copy-new {
+    order: 2 !important;
+    justify-self: center !important;
+    max-width: 100% !important;
+    padding-bottom: 0 !important;
+    text-align: center !important;
+  }
+
+  .reward-money-first {
+    font-size: clamp(2rem, 9vw, 2.75rem) !important;
+  }
+
+  .reward-cup-text {
+    font-size: clamp(1.45rem, 7vw, 2rem) !important;
+  }
+
+  .reward-rank-text--side {
+    font-size: clamp(1.1rem, 5.2vw, 1.55rem) !important;
+  }
+
+  .reward-side-card .reward-count-side {
+    font-size: clamp(1.25rem, 6.2vw, 1.8rem) !important;
+  }
+}
+
+/* FINAL requested fix: keep score panel centered and prevent prize cup/text overlap. */
+.comeback-clean-heading {
+  width: min(100%, 330px) !important;
+  margin-inline: auto !important;
+  padding: 0 !important;
+  border-radius: 0 !important;
+  background: transparent !important;
+  box-shadow: none !important;
+  text-align: center !important;
+}
+
+.comeback-title-box {
+  align-items: center !important;
+  text-align: center !important;
+}
+
+.bonus-system-text {
+  width: 100% !important;
+  margin: 0 auto 0.45rem !important;
+  color: #f8fafc !important;
+  font-size: clamp(1.15rem, 1.45vw, 1.55rem) !important;
+  line-height: 1 !important;
+  letter-spacing: -0.03em !important;
+  text-align: center !important;
+  white-space: nowrap !important;
+}
+
+.comeback-title-svg-main {
+  width: 100% !important;
+  max-width: min(100%, 330px) !important;
+  margin-inline: auto !important;
+  object-position: center !important;
+}
+
+.comeback-title-box p:not(.bonus-system-text):not(.comeback-title-text) {
+  width: min(100%, 330px) !important;
+  margin-inline: auto !important;
+  text-align: left !important;
+}
+
+.reward-first-body {
+  grid-template-columns: minmax(0, 0.82fr) minmax(190px, 1.18fr) !important;
+  align-items: end !important;
+  gap: clamp(0.85rem, 2vw, 1.75rem) !important;
+}
+
+.reward-first-copy-new {
+  z-index: 5 !important;
+  max-width: 255px !important;
+  justify-self: start !important;
+  align-self: end !important;
+}
+
+.reward-first-trophy-wrap-new {
+  z-index: 2 !important;
+  justify-self: end !important;
+  align-self: end !important;
+  min-height: 270px !important;
+  padding-left: clamp(0.75rem, 2vw, 1.5rem) !important;
+  transform: translateX(clamp(0.85rem, 2.4vw, 2.3rem));
+}
+
+.champion-trophy-new {
+  max-width: clamp(225px, 25vw, 330px) !important;
+  max-height: 360px !important;
+}
+
+@media (max-width: 1023px) {
+  .reward-first-body {
+    grid-template-columns: minmax(0, 0.9fr) minmax(160px, 1.1fr) !important;
+  }
+
+  .reward-first-trophy-wrap-new {
+    transform: translateX(clamp(0.25rem, 2vw, 1rem));
+    min-height: 230px !important;
+  }
+
+  .champion-trophy-new {
+    max-width: clamp(190px, 34vw, 260px) !important;
+  }
+}
+
+@media (max-width: 640px) {
+  .comeback-clean-heading,
+  .comeback-title-box p:not(.bonus-system-text):not(.comeback-title-text) {
+    width: min(100%, 300px) !important;
+  }
+
+  .bonus-system-text {
+    font-size: clamp(1.05rem, 5.2vw, 1.42rem) !important;
+  }
+
+  .reward-first-body {
+    grid-template-columns: 1fr !important;
+    gap: 0.85rem !important;
+  }
+
+  .reward-first-copy-new {
+    order: 2 !important;
+    max-width: 100% !important;
+    justify-self: center !important;
+    text-align: center !important;
+  }
+
+  .reward-first-trophy-wrap-new {
+    order: 1 !important;
+    justify-self: center !important;
+    min-height: 185px !important;
+    padding-left: 0 !important;
+    transform: none !important;
+  }
+
+  .champion-trophy-new {
+    max-width: 188px !important;
+    max-height: 200px !important;
+  }
+}
+
+/* FINAL micro-adjustment: move champion trophy to viewer's right and center first-prize title only. */
+.reward-classic-card--first.reward-first-balanced .reward-rank-text--first {
+  display: flex !important;
+  width: 100% !important;
+  justify-content: center !important;
+  align-items: center !important;
+  text-align: center !important;
+  margin-inline: auto !important;
+}
+
+.reward-classic-card--first.reward-first-balanced .reward-first-body {
+  display: block !important;
+  position: relative !important;
+  min-height: clamp(300px, 27vw, 340px) !important;
+}
+
+.reward-classic-card--first.reward-first-balanced .reward-first-copy-new {
+  position: absolute !important;
+  left: 0 !important;
+  bottom: clamp(1.45rem, 3vw, 2.5rem) !important;
+  z-index: 4 !important;
+  width: min(46%, 210px) !important;
+  max-width: 210px !important;
+  padding-bottom: 0 !important;
+  text-align: left !important;
+}
+
+.reward-classic-card--first.reward-first-balanced .reward-first-trophy-wrap-new {
+  position: absolute !important;
+  right: clamp(-0.2rem, -0.4vw, 0rem) !important;
+  bottom: 0 !important;
+  z-index: 3 !important;
+  width: min(55%, 268px) !important;
+  height: clamp(255px, 25vw, 325px) !important;
+  min-height: 0 !important;
+  padding-left: 0 !important;
+  padding-bottom: 0 !important;
+  transform: none !important;
+  display: flex !important;
+  align-items: flex-end !important;
+  justify-content: flex-end !important;
+}
+
+.reward-classic-card--first.reward-first-balanced .champion-trophy-new {
+  width: 100% !important;
+  max-width: 268px !important;
+  max-height: 325px !important;
+  object-fit: contain !important;
+}
+
+.reward-classic-card--first.reward-first-balanced .trophy-gold-glow {
+  inset: 8% -8% -2% 0 !important;
+}
+
+@media (min-width: 1280px) {
+  .reward-classic-card--first.reward-first-balanced .reward-first-copy-new {
+    width: 205px !important;
+    max-width: 205px !important;
+  }
+
+  .reward-classic-card--first.reward-first-balanced .reward-first-trophy-wrap-new {
+    width: 275px !important;
+  }
+
+  .reward-classic-card--first.reward-first-balanced .champion-trophy-new {
+    max-width: 275px !important;
+  }
+}
+
+@media (max-width: 1023px) {
+  .reward-classic-card--first.reward-first-balanced .reward-first-copy-new {
+    width: min(46%, 190px) !important;
+    max-width: 190px !important;
+  }
+
+  .reward-classic-card--first.reward-first-balanced .reward-first-trophy-wrap-new {
+    width: min(53%, 235px) !important;
+    height: clamp(230px, 31vw, 285px) !important;
+  }
+
+  .reward-classic-card--first.reward-first-balanced .champion-trophy-new {
+    max-width: 235px !important;
+    max-height: 285px !important;
+  }
+}
+
+@media (max-width: 640px) {
+  .reward-classic-card--first.reward-first-balanced .reward-first-body {
+    display: grid !important;
+    grid-template-columns: 1fr !important;
+    min-height: auto !important;
+    gap: 0.8rem !important;
+  }
+
+  .reward-classic-card--first.reward-first-balanced .reward-first-trophy-wrap-new {
+    position: relative !important;
+    order: 1 !important;
+    right: auto !important;
+    bottom: auto !important;
+    justify-self: center !important;
+    width: min(78%, 215px) !important;
+    height: auto !important;
+    justify-content: center !important;
+  }
+
+  .reward-classic-card--first.reward-first-balanced .champion-trophy-new {
+    max-width: 205px !important;
+    max-height: 220px !important;
+  }
+
+  .reward-classic-card--first.reward-first-balanced .reward-first-copy-new {
+    position: relative !important;
+    order: 2 !important;
+    left: auto !important;
+    bottom: auto !important;
+    justify-self: center !important;
+    width: 100% !important;
+    max-width: 100% !important;
+    text-align: center !important;
+  }
+}
+
+/* FINAL STRICT CUP PLACEMENT: move trophy to viewer's right, keep first-prize text clear. */
+.reward-classic-card--first.reward-first-balanced .reward-rank-text--first {
+  text-align: center !important;
+  justify-content: center !important;
+  width: 100% !important;
+  margin-inline: auto !important;
+}
+
+.reward-classic-card--first.reward-first-balanced .reward-first-body {
+  display: block !important;
+  position: relative !important;
+  min-height: clamp(305px, 27vw, 340px) !important;
+}
+
+.reward-classic-card--first.reward-first-balanced .reward-first-copy-new {
+  position: absolute !important;
+  left: 0 !important;
+  bottom: clamp(1.3rem, 2.5vw, 2.25rem) !important;
+  z-index: 5 !important;
+  width: clamp(150px, 36%, 178px) !important;
+  max-width: 178px !important;
+  padding-bottom: 0 !important;
+  text-align: left !important;
+}
+
+.reward-classic-card--first.reward-first-balanced .reward-money-first {
+  font-size: clamp(2rem, 3vw, 2.85rem) !important;
+  line-height: 0.94 !important;
+  letter-spacing: -0.06em !important;
+  white-space: nowrap !important;
+}
+
+.reward-classic-card--first.reward-first-balanced .reward-cup-text {
+  font-size: clamp(1.45rem, 2.2vw, 2.05rem) !important;
+  line-height: 0.98 !important;
+  letter-spacing: -0.055em !important;
+}
+
+.reward-classic-card--first.reward-first-balanced .reward-first-trophy-wrap-new {
+  position: absolute !important;
+  right: clamp(-4.8rem, -5vw, -2.6rem) !important;
+  bottom: 0 !important;
+  z-index: 3 !important;
+  width: clamp(238px, 54%, 292px) !important;
+  height: clamp(265px, 26vw, 332px) !important;
+  min-height: 0 !important;
+  padding: 0 !important;
+  transform: none !important;
+  display: flex !important;
+  align-items: flex-end !important;
+  justify-content: flex-end !important;
+}
+
+.reward-classic-card--first.reward-first-balanced .champion-trophy-new {
+  width: 100% !important;
+  max-width: 292px !important;
+  max-height: 332px !important;
+  object-fit: contain !important;
+}
+
+@media (max-width: 1023px) {
+  .reward-classic-card--first.reward-first-balanced .reward-first-copy-new {
+    width: clamp(145px, 37%, 170px) !important;
+    max-width: 170px !important;
+  }
+
+  .reward-classic-card--first.reward-first-balanced .reward-first-trophy-wrap-new {
+    right: clamp(-3.4rem, -5vw, -1.7rem) !important;
+    width: clamp(220px, 55%, 258px) !important;
+    height: clamp(235px, 31vw, 290px) !important;
+  }
+
+  .reward-classic-card--first.reward-first-balanced .champion-trophy-new {
+    max-width: 258px !important;
+    max-height: 290px !important;
+  }
+}
+
+@media (max-width: 640px) {
+  .reward-classic-card--first.reward-first-balanced .reward-first-body {
+    display: grid !important;
+    grid-template-columns: 1fr !important;
+    min-height: auto !important;
+    gap: 0.9rem !important;
+  }
+
+  .reward-classic-card--first.reward-first-balanced .reward-first-trophy-wrap-new {
+    position: relative !important;
+    order: 1 !important;
+    right: auto !important;
+    bottom: auto !important;
+    justify-self: center !important;
+    width: min(78%, 220px) !important;
+    height: auto !important;
+    justify-content: center !important;
+  }
+
+  .reward-classic-card--first.reward-first-balanced .champion-trophy-new {
+    max-width: 210px !important;
+    max-height: 225px !important;
+  }
+
+  .reward-classic-card--first.reward-first-balanced .reward-first-copy-new {
+    position: relative !important;
+    order: 2 !important;
+    left: auto !important;
+    bottom: auto !important;
+    justify-self: center !important;
+    width: 100% !important;
+    max-width: 100% !important;
+    text-align: center !important;
+  }
+}
+
+/* FINAL TEXT GROUP TUNE: center first-prize amount, equalize line sizes, and lift slightly. */
+.reward-classic-card--first.reward-first-balanced .reward-first-copy-new {
+  display: flex !important;
+  flex-direction: column !important;
+  align-items: center !important;
+  justify-content: center !important;
+  text-align: center !important;
+  transform: translateY(-10px) !important;
+}
+
+.reward-classic-card--first.reward-first-balanced .reward-money-first,
+.reward-classic-card--first.reward-first-balanced .reward-cup-text {
+  width: 100% !important;
+  margin: 0 !important;
+  text-align: center !important;
+  font-size: clamp(2rem, 3vw, 2.85rem) !important;
+  font-weight: 900 !important;
+  line-height: 0.98 !important;
+  letter-spacing: -0.06em !important;
+  white-space: nowrap !important;
+}
+
+.reward-classic-card--first.reward-first-balanced .reward-cup-text {
+  margin-top: 0.28rem !important;
+}
+
+@media (max-width: 640px) {
+  .reward-classic-card--first.reward-first-balanced .reward-first-copy-new {
+    transform: translateY(-6px) !important;
+  }
+
+  .reward-classic-card--first.reward-first-balanced .reward-money-first,
+  .reward-classic-card--first.reward-first-balanced .reward-cup-text {
+    font-size: clamp(1.9rem, 9vw, 2.55rem) !important;
+    line-height: 1 !important;
+  }
+}
