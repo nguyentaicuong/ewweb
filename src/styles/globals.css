@@ -3381,43 +3381,45 @@ header .figma-header-container img[alt="Xuan Cau Holdings"] {
   }
 }
 
-/* FINAL micro-adjustment: move champion trophy to viewer's right and center first-prize title only. */
+/* FINAL prize layout correction: title centered above card, cup pinned harder to the right. */
+.reward-classic-card--first.reward-first-balanced {
+  position: relative !important;
+  overflow: hidden !important;
+}
+
 .reward-classic-card--first.reward-first-balanced .reward-rank-text--first {
-  display: flex !important;
+  display: block !important;
   width: 100% !important;
-  justify-content: center !important;
-  align-items: center !important;
+  margin: 0 auto 1.1rem !important;
   text-align: center !important;
-  margin-inline: auto !important;
+  line-height: 0.95 !important;
 }
 
 .reward-classic-card--first.reward-first-balanced .reward-first-body {
-  display: block !important;
   position: relative !important;
-  min-height: clamp(300px, 27vw, 340px) !important;
+  min-height: clamp(320px, 29vw, 360px) !important;
 }
 
 .reward-classic-card--first.reward-first-balanced .reward-first-copy-new {
   position: absolute !important;
   left: 0 !important;
-  bottom: clamp(1.45rem, 3vw, 2.5rem) !important;
+  bottom: clamp(1.35rem, 2.8vw, 2.2rem) !important;
   z-index: 4 !important;
-  width: min(46%, 210px) !important;
-  max-width: 210px !important;
+  width: min(43%, 205px) !important;
+  max-width: 205px !important;
   padding-bottom: 0 !important;
   text-align: left !important;
 }
 
 .reward-classic-card--first.reward-first-balanced .reward-first-trophy-wrap-new {
   position: absolute !important;
-  right: clamp(-0.2rem, -0.4vw, 0rem) !important;
+  right: -0.75rem !important;
   bottom: 0 !important;
   z-index: 3 !important;
-  width: min(55%, 268px) !important;
-  height: clamp(255px, 25vw, 325px) !important;
+  width: min(60%, 325px) !important;
+  height: clamp(270px, 27vw, 340px) !important;
   min-height: 0 !important;
-  padding-left: 0 !important;
-  padding-bottom: 0 !important;
+  padding: 0 !important;
   transform: none !important;
   display: flex !important;
   align-items: flex-end !important;
@@ -3426,27 +3428,27 @@ header .figma-header-container img[alt="Xuan Cau Holdings"] {
 
 .reward-classic-card--first.reward-first-balanced .champion-trophy-new {
   width: 100% !important;
-  max-width: 268px !important;
-  max-height: 325px !important;
+  max-width: 325px !important;
+  max-height: 340px !important;
   object-fit: contain !important;
 }
 
 .reward-classic-card--first.reward-first-balanced .trophy-gold-glow {
-  inset: 8% -8% -2% 0 !important;
+  inset: 7% -12% -2% 0 !important;
 }
 
 @media (min-width: 1280px) {
   .reward-classic-card--first.reward-first-balanced .reward-first-copy-new {
-    width: 205px !important;
-    max-width: 205px !important;
+    width: 210px !important;
+    max-width: 210px !important;
   }
 
   .reward-classic-card--first.reward-first-balanced .reward-first-trophy-wrap-new {
-    width: 275px !important;
+    width: 300px !important;
   }
 
   .reward-classic-card--first.reward-first-balanced .champion-trophy-new {
-    max-width: 275px !important;
+    max-width: 300px !important;
   }
 }
 
@@ -3457,13 +3459,13 @@ header .figma-header-container img[alt="Xuan Cau Holdings"] {
   }
 
   .reward-classic-card--first.reward-first-balanced .reward-first-trophy-wrap-new {
-    width: min(53%, 235px) !important;
-    height: clamp(230px, 31vw, 285px) !important;
+    width: min(56%, 255px) !important;
+    height: clamp(235px, 32vw, 295px) !important;
   }
 
   .reward-classic-card--first.reward-first-balanced .champion-trophy-new {
-    max-width: 235px !important;
-    max-height: 285px !important;
+    max-width: 255px !important;
+    max-height: 295px !important;
   }
 }
 
@@ -3484,6 +3486,7 @@ header .figma-header-container img[alt="Xuan Cau Holdings"] {
     width: min(78%, 215px) !important;
     height: auto !important;
     justify-content: center !important;
+    transform: none !important;
   }
 
   .reward-classic-card--first.reward-first-balanced .champion-trophy-new {
@@ -3500,157 +3503,5 @@ header .figma-header-container img[alt="Xuan Cau Holdings"] {
     width: 100% !important;
     max-width: 100% !important;
     text-align: center !important;
-  }
-}
-
-/* FINAL STRICT CUP PLACEMENT: move trophy to viewer's right, keep first-prize text clear. */
-.reward-classic-card--first.reward-first-balanced .reward-rank-text--first {
-  text-align: center !important;
-  justify-content: center !important;
-  width: 100% !important;
-  margin-inline: auto !important;
-}
-
-.reward-classic-card--first.reward-first-balanced .reward-first-body {
-  display: block !important;
-  position: relative !important;
-  min-height: clamp(305px, 27vw, 340px) !important;
-}
-
-.reward-classic-card--first.reward-first-balanced .reward-first-copy-new {
-  position: absolute !important;
-  left: 0 !important;
-  bottom: clamp(1.3rem, 2.5vw, 2.25rem) !important;
-  z-index: 5 !important;
-  width: clamp(150px, 36%, 178px) !important;
-  max-width: 178px !important;
-  padding-bottom: 0 !important;
-  text-align: left !important;
-}
-
-.reward-classic-card--first.reward-first-balanced .reward-money-first {
-  font-size: clamp(2rem, 3vw, 2.85rem) !important;
-  line-height: 0.94 !important;
-  letter-spacing: -0.06em !important;
-  white-space: nowrap !important;
-}
-
-.reward-classic-card--first.reward-first-balanced .reward-cup-text {
-  font-size: clamp(1.45rem, 2.2vw, 2.05rem) !important;
-  line-height: 0.98 !important;
-  letter-spacing: -0.055em !important;
-}
-
-.reward-classic-card--first.reward-first-balanced .reward-first-trophy-wrap-new {
-  position: absolute !important;
-  right: clamp(-4.8rem, -5vw, -2.6rem) !important;
-  bottom: 0 !important;
-  z-index: 3 !important;
-  width: clamp(238px, 54%, 292px) !important;
-  height: clamp(265px, 26vw, 332px) !important;
-  min-height: 0 !important;
-  padding: 0 !important;
-  transform: none !important;
-  display: flex !important;
-  align-items: flex-end !important;
-  justify-content: flex-end !important;
-}
-
-.reward-classic-card--first.reward-first-balanced .champion-trophy-new {
-  width: 100% !important;
-  max-width: 292px !important;
-  max-height: 332px !important;
-  object-fit: contain !important;
-}
-
-@media (max-width: 1023px) {
-  .reward-classic-card--first.reward-first-balanced .reward-first-copy-new {
-    width: clamp(145px, 37%, 170px) !important;
-    max-width: 170px !important;
-  }
-
-  .reward-classic-card--first.reward-first-balanced .reward-first-trophy-wrap-new {
-    right: clamp(-3.4rem, -5vw, -1.7rem) !important;
-    width: clamp(220px, 55%, 258px) !important;
-    height: clamp(235px, 31vw, 290px) !important;
-  }
-
-  .reward-classic-card--first.reward-first-balanced .champion-trophy-new {
-    max-width: 258px !important;
-    max-height: 290px !important;
-  }
-}
-
-@media (max-width: 640px) {
-  .reward-classic-card--first.reward-first-balanced .reward-first-body {
-    display: grid !important;
-    grid-template-columns: 1fr !important;
-    min-height: auto !important;
-    gap: 0.9rem !important;
-  }
-
-  .reward-classic-card--first.reward-first-balanced .reward-first-trophy-wrap-new {
-    position: relative !important;
-    order: 1 !important;
-    right: auto !important;
-    bottom: auto !important;
-    justify-self: center !important;
-    width: min(78%, 220px) !important;
-    height: auto !important;
-    justify-content: center !important;
-  }
-
-  .reward-classic-card--first.reward-first-balanced .champion-trophy-new {
-    max-width: 210px !important;
-    max-height: 225px !important;
-  }
-
-  .reward-classic-card--first.reward-first-balanced .reward-first-copy-new {
-    position: relative !important;
-    order: 2 !important;
-    left: auto !important;
-    bottom: auto !important;
-    justify-self: center !important;
-    width: 100% !important;
-    max-width: 100% !important;
-    text-align: center !important;
-  }
-}
-
-/* FINAL TEXT GROUP TUNE: center first-prize amount, equalize line sizes, and lift slightly. */
-.reward-classic-card--first.reward-first-balanced .reward-first-copy-new {
-  display: flex !important;
-  flex-direction: column !important;
-  align-items: center !important;
-  justify-content: center !important;
-  text-align: center !important;
-  transform: translateY(-10px) !important;
-}
-
-.reward-classic-card--first.reward-first-balanced .reward-money-first,
-.reward-classic-card--first.reward-first-balanced .reward-cup-text {
-  width: 100% !important;
-  margin: 0 !important;
-  text-align: center !important;
-  font-size: clamp(2rem, 3vw, 2.85rem) !important;
-  font-weight: 900 !important;
-  line-height: 0.98 !important;
-  letter-spacing: -0.06em !important;
-  white-space: nowrap !important;
-}
-
-.reward-classic-card--first.reward-first-balanced .reward-cup-text {
-  margin-top: 0.28rem !important;
-}
-
-@media (max-width: 640px) {
-  .reward-classic-card--first.reward-first-balanced .reward-first-copy-new {
-    transform: translateY(-6px) !important;
-  }
-
-  .reward-classic-card--first.reward-first-balanced .reward-money-first,
-  .reward-classic-card--first.reward-first-balanced .reward-cup-text {
-    font-size: clamp(1.9rem, 9vw, 2.55rem) !important;
-    line-height: 1 !important;
   }
 }
